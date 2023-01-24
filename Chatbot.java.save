@@ -7,21 +7,11 @@ public class Chatbot {
 
     public static void main(String args[]){
         try {
-            boolean isQuit = false;
             List<String> script = Files.readAllLines(Paths.get(args[0]));
             List<String> greeting = textRetriever(script, "GREETING");
             List<String> goodbye = textRetriever(script, "GOODBYE");
-            List<String> presubstitutions = textRetriever(script, "PRESUBSTITUTIONS");
+            List<String> gresubstitutions = textRetriever(script, "PRESUBSTITUTIONS");
             List<String> postsubstitutions = textRetriever(script, "POSTSUBSTITUTIONS");
-	    System.out.println(greeting);
-	    while (isQuit == false){
-		List<String> initialSentence = makeTokens(getInput());
-		List<String> finalSentence = initialSentence;
-		finalSentence = presubstitute(finalSentence, presubstitutions);
-		finalSentence = postsubstitute(finalSentence, postsubstitutions);
-        System.out.println(finalSentence);
-	    }
-	    System.out.println(goodbye);
         } catch (Exception e){
             System.out.println("No supported script supplied");
             System.exit(0);
@@ -74,22 +64,5 @@ public class Chatbot {
                 i++;
             }
             return result;
-    }
-    public static List<String> presubstitute(List<String> input, List<String> presubstitutions){
-	List<String> result = input;
-    for (int i = 0; i < presubstitutions.size(); i++){
-        List<String> words = makeTokens(presubstitutions.get(i));
-        System.out.println(words);
-        for (int j = 0; j < input.size(); j++){
-            if (words.get(0).equals(input.get(j))){
-                result.set(j, words.get(2));
-            }
-        }
-    }
-	return result;
-    }
-    public static List<String> postsubstitute(List<String> input, List<String> postsubstitutions){
-	List<String> result = input;
-	return result;
     }
 }

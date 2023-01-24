@@ -1,0 +1,7 @@
+GREETING
+To begin, type something into the box, you must.
+GOODBYE
+PRESUBSTITUTIONS
+I > me
+POSTSUBSTITUTIONS
+END

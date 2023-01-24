@@ -1,0 +1,12 @@
+GREETING
+Hello and welcome. Have a seat. What would you like to talk about?
+GOODBYE
+Same time next week?
+PRESUBSTITUTIONS
+me > you
+i > you
+you > me
+POSTSUBSTITUTIONS
+Bla bla bla
+Bla Bla bla
+END
