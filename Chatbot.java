@@ -78,6 +78,7 @@ public class Chatbot {
 
     public static List<String> presubstitute(List<String> input, List<String> presubstitutions){
 	List<String> result = input;
+	List<String> provisional = new ArrayList<>(input);
     for (int i = 0; i < presubstitutions.size(); i++){
         List<String> wordsToBeAdded = makeTokens(presubstitutions.get(i));
         while (!wordsToBeAdded.get(0).equals(">")){
@@ -95,15 +96,18 @@ public class Chatbot {
             wordsToBeSwapped.remove(k);
             p--;
         }
-        int index = compareWords(wordsToBeSwapped, input);
+        int index = compareWords(wordsToBeSwapped, provisional);
 	if (index > -1){
 		for (int r = 0; r < wordsToBeSwapped.size(); r++){
 			result.remove(index);
+			provisional.remove(index);
 		}
 		for (int t = 0; t < wordsToBeAdded.size(); t++){
-			result.add(index, wordsToBeAdded.get(t));
+			result.add(index, wordsToBeAdded.get(t));//this line should not add to provisional
 		}
 	}
+	System.out.println("provisional" + provisional);
+	System.out.println("result" + result);
     }
 	return result;
     }
