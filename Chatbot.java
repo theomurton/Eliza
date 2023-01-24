@@ -15,11 +15,12 @@ public class Chatbot {
             List<String> postsubstitutions = textRetriever(script, "POSTSUBSTITUTIONS");
 	    System.out.println(greeting);
 	    while (isQuit == false){
+		//System.out.println("type");
 		List<String> initialSentence = makeTokens(getInput());
 		List<String> finalSentence = initialSentence;
 		finalSentence = presubstitute(finalSentence, presubstitutions);
 		finalSentence = postsubstitute(finalSentence, postsubstitutions);
-        System.out.println(finalSentence);
+        	System.out.println(finalSentence);
 	    }
 	    System.out.println(goodbye);
         } catch (Exception e){
@@ -75,21 +76,55 @@ public class Chatbot {
             }
             return result;
     }
+
     public static List<String> presubstitute(List<String> input, List<String> presubstitutions){
 	List<String> result = input;
     for (int i = 0; i < presubstitutions.size(); i++){
-        List<String> words = makeTokens(presubstitutions.get(i));
-        System.out.println(words);
-        for (int j = 0; j < input.size(); j++){
-            if (words.get(0).equals(input.get(j))){
-                result.set(j, words.get(2));
-            }
+        List<String> wordsToBeAdded = makeTokens(presubstitutions.get(i));
+        while (!wordsToBeAdded.get(0).equals(">")){
+            wordsToBeAdded.remove(0);
         }
+        wordsToBeAdded.remove(0);
+        List<String> wordsToBeSwapped = makeTokens(presubstitutions.get(i));
+        int k = 0;
+        while (!wordsToBeSwapped.get(k).equals(">")){
+            k++;
+        }
+        int p = makeTokens(presubstitutions.get(i)).size() - k;
+        while (p > 0){
+            wordsToBeSwapped.remove(k);
+            p--;
+        }
+        int index = compareWords(wordsToBeSwapped, input);
+        System.out.println(index);
     }
 	return result;
     }
+
     public static List<String> postsubstitute(List<String> input, List<String> postsubstitutions){
 	List<String> result = input;
 	return result;
+    }
+
+    public static int compareWords(List<String> wordsToBeSwapped, List<String> input){
+        int result = -1;
+        int j = 0;
+        for (int i = 0; i < input.size(); i++){
+            int k = i;
+            while (j < wordsToBeSwapped.size()){
+                if (!input.get(i).equals(wordsToBeSwapped.get(j))){
+                    break;
+                }
+                else {
+                    if (j == wordsToBeSwapped.size() - 1){
+                        return k;
+                    } else {
+                    i++;
+                    j++;
+                    }
+                }
+            }
+        }
+        return result;
     }
 }

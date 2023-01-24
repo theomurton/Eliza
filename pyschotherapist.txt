@@ -3,10 +3,10 @@ Hello and welcome. Have a seat. What would you like to talk about?
 GOODBYE
 Same time next week?
 PRESUBSTITUTIONS
+i am > you are
 me > you
-i > you
-you > me
+great > good
 POSTSUBSTITUTIONS
-Bla bla bla
-Bla Bla bla
+Bla bla bla > the
+Bla Bla > yes
 END
