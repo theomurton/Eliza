@@ -4,7 +4,6 @@ GOODBYE
 Same time next week?
 PRESUBSTITUTIONS
 i am > you are
-you are > i am
 you > me
 me > you
 great > good
