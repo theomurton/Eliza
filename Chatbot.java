@@ -15,7 +15,6 @@ public class Chatbot {
             List<String> postsubstitutions = textRetriever(script, "POSTSUBSTITUTIONS");
 	    System.out.println(greeting);
 	    while (isQuit == false){
-		//System.out.println("type");
 		List<String> initialSentence = makeTokens(getInput());
 		List<String> finalSentence = initialSentence;
 		finalSentence = presubstitute(finalSentence, presubstitutions);
@@ -85,6 +84,7 @@ public class Chatbot {
             wordsToBeAdded.remove(0);
         }
         wordsToBeAdded.remove(0);
+	Collections.reverse(wordsToBeAdded);
         List<String> wordsToBeSwapped = makeTokens(presubstitutions.get(i));
         int k = 0;
         while (!wordsToBeSwapped.get(k).equals(">")){
@@ -96,7 +96,14 @@ public class Chatbot {
             p--;
         }
         int index = compareWords(wordsToBeSwapped, input);
-        System.out.println(index);
+	if (index > -1){
+		for (int r = 0; r < wordsToBeSwapped.size(); r++){
+			result.remove(index);
+		}
+		for (int t = 0; t < wordsToBeAdded.size(); t++){
+			result.add(index, wordsToBeAdded.get(t));
+		}
+	}
     }
 	return result;
     }
