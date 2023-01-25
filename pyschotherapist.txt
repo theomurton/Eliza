@@ -5,6 +5,7 @@ Same time next week?
 PRESUBSTITUTIONS
 i am > you are
 you are > i am
+i > you
 you > me
 me > you
 great > good
@@ -13,4 +14,6 @@ i'm > you are
 POSTSUBSTITUTIONS
 Bla bla bla > the
 Bla Bla > yes
+KEYWORDS
+1) feeling > yes 
 END

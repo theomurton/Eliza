@@ -13,6 +13,7 @@ public class Chatbot {
             List<String> goodbye = textRetriever(script, "GOODBYE");
             List<String> presubstitutions = textRetriever(script, "PRESUBSTITUTIONS");
             List<String> postsubstitutions = textRetriever(script, "POSTSUBSTITUTIONS");
+	    List<String> keywords = textRetriever(script, "KEYWORDS");
 	    System.out.println(greeting);
 	    while (isQuit == false){
 		List<String> initialSentence = makeTokens(getInput());
@@ -63,7 +64,8 @@ public class Chatbot {
             keys.put("GREETING", "GOODBYE");
             keys.put("GOODBYE", "PRESUBSTITUTIONS");
             keys.put("PRESUBSTITUTIONS", "POSTSUBSTITUTIONS");
-            keys.put("POSTSUBSTITUTIONS", "END");
+            keys.put("POSTSUBSTITUTIONS", "KEYWORDS");
+	    keys.put("KEYWORDS", "END");
             int i = 0;
             while (!input.get(i).equals(section)){
                 i++;
@@ -103,11 +105,9 @@ public class Chatbot {
 			provisional.remove(index);
 		}
 		for (int t = 0; t < wordsToBeAdded.size(); t++){
-			result.add(index, wordsToBeAdded.get(t));//this line should not add to provisional
+			result.add(index, wordsToBeAdded.get(t));
 		}
 	}
-	System.out.println("provisional" + provisional);
-	System.out.println("result" + result);
     }
 	return result;
     }
