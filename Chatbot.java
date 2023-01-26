@@ -5,8 +5,7 @@ import java.io.*;
 
 public class Chatbot {
 
-    public static void main(String args[]){
-        try {
+    public static void main(String args[])throws IOException {
             boolean isQuit = false;
             List<String> script = Files.readAllLines(Paths.get(args[0]));
             List<String> greeting = textRetriever(script, "GREETING");
@@ -18,17 +17,12 @@ public class Chatbot {
 	        while (isQuit == false){
 		        List<String> initialSentence = makeTokens(getInput());
 		        List<String> finalSentence = initialSentence;
-		        finalSentence = substitute(finalSentence, presubstitutions);
-			System.out.println("presubbed");
-			System.out.println(finalSentence);
-		        finalSentence = substitute(finalSentence, postsubstitutions);
+		        //finalSentence = substitute(finalSentence, presubstitutions);
+		        //finalSentence = substitute(finalSentence, postsubstitutions);
+			List<String> fragment = decompose(keywords, finalSentence);
         	    System.out.println(finalSentence);
 	        }
 	        System.out.println(goodbye);
-        } catch (Exception e){
-            System.out.println("No supported script supplied");
-            System.exit(0);
-        }
     }
 
     public static String getInput(){
@@ -100,7 +94,6 @@ public class Chatbot {
             wordsToBeSwapped.remove(k);
             p--;
         }
-	System.out.println("got here");
         int index = compareWords(wordsToBeSwapped, provisional);
 	if (index > -1){
 		for (int r = 0; r < wordsToBeSwapped.size(); r++){
@@ -120,7 +113,6 @@ public class Chatbot {
         int j = 0;
         for (int i = 0; i < input.size(); i++){
             int k = i;
-		System.out.println(wordsToBeSwapped);
             while (j < wordsToBeSwapped.size()){
                 if (!input.get(i).equals(wordsToBeSwapped.get(j))){
                     break;
@@ -130,7 +122,6 @@ public class Chatbot {
 		}
                 else {
                     if (j == wordsToBeSwapped.size() - 1){
-			System.out.println(input.get(k));
                         return k;
                     } else {
                     i++;
@@ -142,12 +133,11 @@ public class Chatbot {
         return result;
     }
 
-    public static List<String> scanKeywords(List<String> keywords, List<String> input){
-        List<String> result = new ArrayList<>();
-        return result;
-    }
 
     public static List<String> decompose(List<String> keywords, List<String> input){
+	for (int i = 0; i < keywords.size(); i++){
+		System.out.println(compareWords(keywords, input));
+	}
         List<String> fragment = new ArrayList<>(input);
         return fragment;
     }
