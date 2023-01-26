@@ -13,16 +13,18 @@ public class Chatbot {
             List<String> goodbye = textRetriever(script, "GOODBYE");
             List<String> presubstitutions = textRetriever(script, "PRESUBSTITUTIONS");
             List<String> postsubstitutions = textRetriever(script, "POSTSUBSTITUTIONS");
-	    List<String> keywords = textRetriever(script, "KEYWORDS");
-	    System.out.println(greeting);
-	    while (isQuit == false){
-		List<String> initialSentence = makeTokens(getInput());
-		List<String> finalSentence = initialSentence;
-		finalSentence = presubstitute(finalSentence, presubstitutions);
-		finalSentence = postsubstitute(finalSentence, postsubstitutions);
-        	System.out.println(finalSentence);
-	    }
-	    System.out.println(goodbye);
+	        List<String> keywords = textRetriever(script, "KEYWORDS");
+	        System.out.println(greeting);
+	        while (isQuit == false){
+		        List<String> initialSentence = makeTokens(getInput());
+		        List<String> finalSentence = initialSentence;
+		        finalSentence = substitute(finalSentence, presubstitutions);
+			System.out.println("presubbed");
+			System.out.println(finalSentence);
+		        finalSentence = substitute(finalSentence, postsubstitutions);
+        	    System.out.println(finalSentence);
+	        }
+	        System.out.println(goodbye);
         } catch (Exception e){
             System.out.println("No supported script supplied");
             System.exit(0);
@@ -78,26 +80,27 @@ public class Chatbot {
             return result;
     }
 
-    public static List<String> presubstitute(List<String> input, List<String> presubstitutions){
+    public static List<String> substitute(List<String> input, List<String> substitutions){
 	List<String> result = input;
 	List<String> provisional = new ArrayList<>(input);
-    for (int i = 0; i < presubstitutions.size(); i++){
-        List<String> wordsToBeAdded = makeTokens(presubstitutions.get(i));
+    for (int i = 0; i < substitutions.size(); i++){
+        List<String> wordsToBeAdded = makeTokens(substitutions.get(i));
         while (!wordsToBeAdded.get(0).equals(">")){
             wordsToBeAdded.remove(0);
         }
         wordsToBeAdded.remove(0);
 	Collections.reverse(wordsToBeAdded);
-        List<String> wordsToBeSwapped = makeTokens(presubstitutions.get(i));
+        List<String> wordsToBeSwapped = makeTokens(substitutions.get(i));
         int k = 0;
         while (!wordsToBeSwapped.get(k).equals(">")){
             k++;
         }
-        int p = makeTokens(presubstitutions.get(i)).size() - k;
+        int p = makeTokens(substitutions.get(i)).size() - k;
         while (p > 0){
             wordsToBeSwapped.remove(k);
             p--;
         }
+	System.out.println("got here");
         int index = compareWords(wordsToBeSwapped, provisional);
 	if (index > -1){
 		for (int r = 0; r < wordsToBeSwapped.size(); r++){
@@ -112,22 +115,22 @@ public class Chatbot {
 	return result;
     }
 
-    public static List<String> postsubstitute(List<String> input, List<String> postsubstitutions){
-	List<String> result = input;
-	return result;
-    }
-
     public static int compareWords(List<String> wordsToBeSwapped, List<String> input){
         int result = -1;
         int j = 0;
         for (int i = 0; i < input.size(); i++){
             int k = i;
+		System.out.println(wordsToBeSwapped);
             while (j < wordsToBeSwapped.size()){
                 if (!input.get(i).equals(wordsToBeSwapped.get(j))){
                     break;
                 }
+		else if (input.get(i).equals(wordsToBeSwapped.get(j)) &&  i == input.size() - 1 && j < wordsToBeSwapped.size() - 1) {
+		return -1;
+		}
                 else {
                     if (j == wordsToBeSwapped.size() - 1){
+			System.out.println(input.get(k));
                         return k;
                     } else {
                     i++;
@@ -137,5 +140,15 @@ public class Chatbot {
             }
         }
         return result;
+    }
+
+    public static List<String> scanKeywords(List<String> keywords, List<String> input){
+        List<String> result = new ArrayList<>();
+        return result;
+    }
+
+    public static List<String> decompose(List<String> keywords, List<String> input){
+        List<String> fragment = new ArrayList<>(input);
+        return fragment;
     }
 }

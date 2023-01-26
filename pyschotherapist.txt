@@ -1,19 +1,36 @@
 GREETING
 Hello and welcome. Have a seat. What would you like to talk about?
+Hello again. How was your week?
+Come in, good to see you. How doth matters progress?
+Salutations. Pray tell me of your struggles.
+Hello, let's talk about some of your problems.
 GOODBYE
 Same time next week?
+I'm glad we could clear that up.
+Thanks, please send the next patient in.
+That will be £200 please.
+Well that was certainly better than last week.
 PRESUBSTITUTIONS
+it's > it is
+can't > cannot
+cant > cannot
+im > i am
+reckon > think
+great > good
+you're > you are
+youre > you are
+i'm > i am
+POSTSUBSTITUTIONS
 i am > you are
 you are > i am
+me > you
 i > you
 you > me
-me > you
-great > good
-you're > i am
-i'm > you are
-POSTSUBSTITUTIONS
-Bla bla bla > the
-Bla Bla > yes
 KEYWORDS
-1) feeling > yes 
+feeling > * feeling () < You say you are () ? 
+I feel > * feel () < Why do you think you () ?
+I hate > * hate () < It's common to () .
+I love > * love () < That's positive, it's good to () .
+happy > 
+sad >   
 END
