@@ -159,12 +159,13 @@ public class Chatbot {
 
     public static List<String> substituter(List<String> input, List<String> substitutions){
 	List<String> provisional = new ArrayList<>(input);
-	List<String> result = new ArrayList<>();
+	List<String> result = new ArrayList<>(input);
 	HashSet<Integer> banned = new HashSet<>();
-	HashMap<Integer, String> keys = new HashMap<>();
-	for (int e = 0; e < input.size(); e++){
-		keys.put(e, input.get(e));
-	}
+	int totalDifference = 0;
+	//HashMap<Integer, String> keys = new HashMap<>();
+	//for (int e = 0; e < input.size(); e++){
+	//	keys.put(e, input.get(e));
+	//}
     	for (int i = 0; i < substitutions.size(); i++){
         	List<String> wordsToBeAdded = makeTokens(substitutions.get(i));
         	while (!wordsToBeAdded.get(0).equals(">")){
@@ -182,14 +183,22 @@ public class Chatbot {
             		wordsToBeSwapped.remove(k);
             		p--;
         	}
+		// this is the new loop that makes it multiple runs for each rule
 		for (int j = 0; j < input.size(); j ++){
         		int index = compareWords(wordsToBeSwapped, provisional, banned);
-//			System.out.println(index);
+			System.out.println(index);
 			if (index > -1){
+				System.out.println(totalDifference);
 				for (int y = 0; y < wordsToBeSwapped.size(); y++){
 					banned.add(index + y);
+					result.remove(index + totalDifference);
 				}
+				for (int t = 0; t < wordsToBeAdded.size(); t++){
+					result.add(index + totalDifference, wordsToBeAdded.get(t));
+				}
+				totalDifference += (wordsToBeAdded.size() - wordsToBeSwapped.size());
 			}
+		System.out.println(result);
 		}
     	}
 	System.out.println(banned);
