@@ -159,6 +159,7 @@ public class Chatbot {
 
     public static List<String> substituter(List<String> input, List<String> substitutions){
 	List<String> provisional = new ArrayList<>(input);
+	HashMap<Integer, Integer> differences = new HashMap<>();
 	List<String> result = new ArrayList<>(input);
 	HashSet<Integer> banned = new HashSet<>();
 	int totalDifference = 0;
@@ -197,6 +198,7 @@ public class Chatbot {
 					result.add(index + totalDifference, wordsToBeAdded.get(t));
 				}
 				totalDifference += (wordsToBeAdded.size() - wordsToBeSwapped.size());
+				differences.put(index, (wordsToBeAdded.size())- (wordsToBeSwapped.size()));
 			}
 		System.out.println(result);
 		}
