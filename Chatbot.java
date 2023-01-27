@@ -187,15 +187,20 @@ public class Chatbot {
 		// this is the new loop that makes it multiple runs for each rule
 		for (int j = 0; j < input.size(); j ++){
         		int index = compareWords(wordsToBeSwapped, provisional, banned);
-			System.out.println(index);
 			if (index > -1){
+				int relevantDifferences = 0;
+				for (int ind : differences.keySet()){
+					if (ind < index){
+						relevantDifferences += differences.get(ind);
+					}
+				}
 				System.out.println(totalDifference);
 				for (int y = 0; y < wordsToBeSwapped.size(); y++){
 					banned.add(index + y);
-					result.remove(index + totalDifference);
+					result.remove(index + relevantDifferences);
 				}
 				for (int t = 0; t < wordsToBeAdded.size(); t++){
-					result.add(index + totalDifference, wordsToBeAdded.get(t));
+					result.add(index + relevantDifferences, wordsToBeAdded.get(t));
 				}
 				totalDifference += (wordsToBeAdded.size() - wordsToBeSwapped.size());
 				differences.put(index, (wordsToBeAdded.size())- (wordsToBeSwapped.size()));
@@ -203,7 +208,8 @@ public class Chatbot {
 		System.out.println(result);
 		}
     	}
-	System.out.println(banned);
+	System.out.println(differences.keySet());
+	System.out.println(differences.values());
         return result;
     }
 
