@@ -17,8 +17,8 @@ public class Chatbot {
 	        while (isQuit == false){
 		        List<String> initialSentence = makeTokens(getInput());
 		        List<String> finalSentence = initialSentence;
-		        //finalSentence = substitute(finalSentence, presubstitutions);
-		        //finalSentence = substitute(finalSentence, postsubstitutions);
+		        finalSentence = substitute(finalSentence, presubstitutions);
+		        finalSentence = substitute(finalSentence, postsubstitutions);
 			List<String> fragment = decompose(keywords, finalSentence);
         	    System.out.println(finalSentence);
 	        }
@@ -75,7 +75,7 @@ public class Chatbot {
     }
 
     public static List<String> substitute(List<String> input, List<String> substitutions){
-	List<String> result = input;
+	List<String> result = new ArrayList<>(input);
 	List<String> provisional = new ArrayList<>(input);
     for (int i = 0; i < substitutions.size(); i++){
         List<String> wordsToBeAdded = makeTokens(substitutions.get(i));
@@ -95,6 +95,7 @@ public class Chatbot {
             p--;
         }
         int index = compareWords(wordsToBeSwapped, provisional);
+	System.out.println(provisional + " prov");
 	if (index > -1){
 		for (int r = 0; r < wordsToBeSwapped.size(); r++){
 			result.remove(index);
@@ -110,9 +111,9 @@ public class Chatbot {
 
     public static int compareWords(List<String> wordsToBeSwapped, List<String> input){
         int result = -1;
-        int j = 0;
         for (int i = 0; i < input.size(); i++){
-            int k = i;
+	int j = 0;
+	int k = i;
             while (j < wordsToBeSwapped.size()){
                 if (!input.get(i).equals(wordsToBeSwapped.get(j))){
                     break;
@@ -134,9 +135,18 @@ public class Chatbot {
     }
 
 
-    public static List<String> decompose(List<String> keywords, List<String> input){
-	for (int i = 0; i < keywords.size(); i++){
-		System.out.println(compareWords(keywords, input));
+    public static List<String> decompose(List<String> keywordLines, List<String> input){
+	for (int i = 0; i < keywordLines.size(); i++){
+		List<String> keywords = makeTokens(keywordLines.get(i));
+        	int k = 0;
+        	while (!keywords.get(k).equals(">")){
+            k++;
+        }
+        int p = makeTokens(keywordLines.get(i)).size() - k;
+        while (p > 0){
+            keywords.remove(k);
+            p--;
+        }
 	}
         List<String> fragment = new ArrayList<>(input);
         return fragment;

@@ -21,11 +21,12 @@ you're > you are
 youre > you are
 i'm > i am
 POSTSUBSTITUTIONS
-i am > you are
+ted bundy > a b c d e f g
 you are > i am
+i am > you are
 me > you
 i > you
-you > me
+you > i
 KEYWORDS
 feeling > * feeling () < You say you are () ? 
 I feel > * feel () < Why do you think you () ?
