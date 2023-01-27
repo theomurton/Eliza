@@ -61,7 +61,7 @@ public class Chatbot {
             keys.put("GOODBYE", "PRESUBSTITUTIONS");
             keys.put("PRESUBSTITUTIONS", "POSTSUBSTITUTIONS");
             keys.put("POSTSUBSTITUTIONS", "KEYWORDS");
-	    keys.put("KEYWORDS", "END");
+	        keys.put("KEYWORDS", "END");
             int i = 0;
             while (!input.get(i).equals(section)){
                 i++;
@@ -75,8 +75,15 @@ public class Chatbot {
     }
 
     public static List<String> substitute(List<String> input, List<String> substitutions){
+    int totalLost = 0;
+    int totalGained = 0;
 	List<String> result = new ArrayList<>(input);
 	List<String> provisional = new ArrayList<>(input);
+    HashMap<Integer, String> proviso = new HashMap<>();
+    for (int i = 0; i < input.size(); i++){
+        proviso.put(i, input.get(i));
+    }
+    System.out.println(proviso.keySet());
     for (int i = 0; i < substitutions.size(); i++){
         List<String> wordsToBeAdded = makeTokens(substitutions.get(i));
         while (!wordsToBeAdded.get(0).equals(">")){
@@ -95,14 +102,21 @@ public class Chatbot {
             p--;
         }
         int index = compareWords(wordsToBeSwapped, provisional);
+        int difference = wordsToBeAdded.size() - wordsToBeSwapped.size();
 	System.out.println(provisional + " prov");
+    System.out.println(result + " result");
+    int totalDifference = totalGained = totalLost;
+    int lostTemporary = totalLost;
 	if (index > -1){
 		for (int r = 0; r < wordsToBeSwapped.size(); r++){
-			result.remove(index);
+            System.out.println(totalLost);
+			result.remove(index + lostTemporary);
 			provisional.remove(index);
+            totalLost ++;
 		}
 		for (int t = 0; t < wordsToBeAdded.size(); t++){
-			result.add(index, wordsToBeAdded.get(t));
+			result.add(index + lostTemporary, wordsToBeAdded.get(t));
+            totalGained ++;
 		}
 	}
     }
@@ -112,8 +126,8 @@ public class Chatbot {
     public static int compareWords(List<String> wordsToBeSwapped, List<String> input){
         int result = -1;
         for (int i = 0; i < input.size(); i++){
-	int j = 0;
-	int k = i;
+	        int j = 0;
+	        int k = i;
             while (j < wordsToBeSwapped.size()){
                 if (!input.get(i).equals(wordsToBeSwapped.get(j))){
                     break;
