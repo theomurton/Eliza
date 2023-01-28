@@ -17,7 +17,7 @@ public class Chatbot {
 	        while (isQuit == false){
 		        List<String> initialSentence = makeTokens(getInput());
 		        List<String> finalSentence = initialSentence;
-		        //finalSentence = substituter(finalSentence, presubstitutions);
+		        finalSentence = substituter(finalSentence, presubstitutions);
 		        finalSentence = substituter(finalSentence, postsubstitutions);
 			List<String> fragment = decompose(keywords, finalSentence);
         	    System.out.println(finalSentence);
@@ -74,73 +74,18 @@ public class Chatbot {
             return result;
     }
 
-   /* public static List<String> substitute(List<String> input, List<String> substitutions){
-    int totalLost = 0;
-    int totalGained = 0;
-	List<String> result = new ArrayList<>(input);
-	List<String> provisional = new ArrayList<>(input);
-    HashMap<Integer, String> proviso = new HashMap<>();
-    for (int i = 0; i < input.size(); i++){
-        proviso.put(i, input.get(i));
-    }
-    for (int i = 0; i < substitutions.size(); i++){
-        List<String> wordsToBeAdded = makeTokens(substitutions.get(i));
-        while (!wordsToBeAdded.get(0).equals(">")){
-            wordsToBeAdded.remove(0);
-        }
-        wordsToBeAdded.remove(0);
-	Collections.reverse(wordsToBeAdded);
-        List<String> wordsToBeSwapped = makeTokens(substitutions.get(i));
-        int k = 0;
-        while (!wordsToBeSwapped.get(k).equals(">")){
-            k++;
-        }
-        int p = makeTokens(substitutions.get(i)).size() - k;
-        while (p > 0){
-            wordsToBeSwapped.remove(k);
-            p--;
-        }
-        int index = compareWords(wordsToBeSwapped, provisional);
-        int difference = wordsToBeAdded.size() - wordsToBeSwapped.size();
-	System.out.println(provisional + " prov");
-    System.out.println(result + " result");
-	System.out.println(proviso.values() + "hash");
-	System.out.println(proviso.keySet());
-    int totalDifference = totalGained = totalLost;
-    int lostTemporary = totalLost;
-	if (index > -1){
-		for (int r = 0; r < wordsToBeSwapped.size(); r++){
-            System.out.println(totalLost);
-			result.remove(index + lostTemporary);
-			provisional.remove(index);
-			proviso.remove(index + r);
-            totalLost ++;
-		}
-		for (int t = 0; t < wordsToBeAdded.size(); t++){
-			result.add(index + lostTemporary, wordsToBeAdded.get(t));
-            totalGained ++;
-		}
-	}
-    }
-	return result;
-    }*/
-
     public static int compareWords(List<String> wordsToBeSwapped, List<String> input, HashSet<Integer> banned){
         int result = -1;
-//	System.out.println(input);
-//	System.out.println(wordsToBeSwapped);
         for (int i = 0; i < input.size(); i++){
 	        int j = 0;
 	        int k = i;
             if(banned.contains(i) == false){
-//		System.out.println("passed");
 		while (j < wordsToBeSwapped.size()){
                 	if (!input.get(i).equals(wordsToBeSwapped.get(j))){
-//				System.out.println("Not a match");
+
                     		break;
                 	}
 			else if (input.get(i).equals(wordsToBeSwapped.get(j)) &&  i == input.size() - 1 && j < wordsToBeSwapped.size() - 1) {
-//				System.out.println("Too big");
 				return -1;
 			}
                 	else {
@@ -163,10 +108,6 @@ public class Chatbot {
 	List<String> result = new ArrayList<>(input);
 	HashSet<Integer> banned = new HashSet<>();
 	int totalDifference = 0;
-	//HashMap<Integer, String> keys = new HashMap<>();
-	//for (int e = 0; e < input.size(); e++){
-	//	keys.put(e, input.get(e));
-	//}
     	for (int i = 0; i < substitutions.size(); i++){
         	List<String> wordsToBeAdded = makeTokens(substitutions.get(i));
         	while (!wordsToBeAdded.get(0).equals(">")){
@@ -194,7 +135,6 @@ public class Chatbot {
 						relevantDifferences += differences.get(ind);
 					}
 				}
-				System.out.println(totalDifference);
 				for (int y = 0; y < wordsToBeSwapped.size(); y++){
 					banned.add(index + y);
 					result.remove(index + relevantDifferences);
@@ -205,28 +145,41 @@ public class Chatbot {
 				totalDifference += (wordsToBeAdded.size() - wordsToBeSwapped.size());
 				differences.put(index, (wordsToBeAdded.size())- (wordsToBeSwapped.size()));
 			}
-		System.out.println(result);
 		}
     	}
-	System.out.println(differences.keySet());
-	System.out.println(differences.values());
         return result;
     }
 
 
     public static List<String> decompose(List<String> keywordLines, List<String> input){
+	boolean match = false;
+	int index = -1;
+	int x = -1;
 	for (int i = 0; i < keywordLines.size(); i++){
+		HashSet<Integer> banned = new HashSet<>();
 		List<String> keywords = makeTokens(keywordLines.get(i));
         	int k = 0;
         	while (!keywords.get(k).equals(">")){
-            k++;
-        }
-        int p = makeTokens(keywordLines.get(i)).size() - k;
-        while (p > 0){
-            keywords.remove(k);
-            p--;
-        }
+            		k++;
+        	}
+        	int p = makeTokens(keywordLines.get(i)).size() - k;
+        	while (p > 0){
+            		keywords.remove(k);
+            		p--;
+        	}
+		System.out.println(keywords);
+		index = compareWords(keywords, input, banned);
+		if (index > -1){
+			match = true;
+			x = i;
+			break;
+		}
 	}
+	if (match == false){
+		return null;
+	}
+	System.out.println(index);
+	List<String> rule = new ArrayList<>();
         List<String> fragment = new ArrayList<>(input);
         return fragment;
     }
