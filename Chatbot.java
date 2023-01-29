@@ -14,6 +14,7 @@ public class Chatbot {
             List<String> postsubstitutions = textRetriever(script, "POSTSUBSTITUTIONS");
 	    List<String> keywords = textRetriever(script, "KEYWORDS");
 	    List<String> idle = textRetriever(script, "IDLE");
+	    List<String> memory = textRetriever(script, "MEMORY");
 	    List<String> quit = textRetriever(script, "QUIT");
 	    Random random = new Random();
 	    HashSet<Integer> banned = new HashSet<>();
@@ -37,8 +38,8 @@ public class Chatbot {
 				System.out.println();
 				System.out.println(idle.get(random.nextInt(idle.size())));
 			} else {
-				List<String> memory = new ArrayList<>(fragment);
-				memories.add(memory);
+				List<String> thought = new ArrayList<>(fragment);
+				memories.add(thought);
 				int lineIndex = Integer.parseInt(fragment.get(fragment.size() - 1));
 				fragment.remove(fragment.size() -1);
 				System.out.println(memories);
@@ -94,19 +95,6 @@ public class Chatbot {
         }
         return tokens;
     }
-    public static List<String> scanKeywords(List<String> input){
-        HashMap<String, Integer> keywordsDictionary= new HashMap<String, Integer>();
-        List<String> keywords = new ArrayList<>();
-
-        for (String i : keywordsDictionary.keySet()){
-            for (int j = 0; j < input.size(); j++){
-                if (input.get(j).equals(i)){
-                    keywords.add(input.get(j));
-                }
-            }
-        }
-        return keywords;
-    }
 
     public static List<String> textRetriever(List<String> input, String section){
             List<String> result = new ArrayList<String>();
@@ -116,7 +104,8 @@ public class Chatbot {
             keys.put("PRESUBSTITUTIONS", "POSTSUBSTITUTIONS");
             keys.put("POSTSUBSTITUTIONS", "KEYWORDS");
 	    keys.put("KEYWORDS", "IDLE");
-	    keys.put("IDLE", "QUIT");
+	    keys.put("IDLE", "MEMORY");
+	    keys.put("MEMORY", "QUIT");
 	    keys.put("QUIT", "END");
             int i = 0;
             while (!input.get(i).equals(section)){
