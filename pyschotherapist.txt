@@ -40,7 +40,10 @@ Can you be clearer about that?
 Can you put that in simpler terms?
 Really?
 MEMORY
+0 > Earlier you said were () . Want to talk more about that ?
+1 > Do you still () ?
 2 > Okay, you said you () ?
+3 > Do you think it is right to () ?
 QUIT
 quit
 bye

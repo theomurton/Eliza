@@ -35,14 +35,31 @@ public class Chatbot {
 			finalSentence = substituter(finalSentence, presubstitutions);
 			List<String> fragment = decompose(keywords, finalSentence);
 			if (fragment == null){
-				System.out.println();
-				System.out.println(idle.get(random.nextInt(idle.size())));
+				int chance = random.nextInt(11);
+				if (chance < 3){
+					System.out.println(idle.get(random.nextInt(idle.size())));
+				}
+				if (chance >= 3){
+					if (recall(memories, memory) == null){
+						System.out.println(idle.get(random.nextInt(idle.size())));
+					} else {
+					List<String> sentence = recall(memories, memory);
+					String output  = "";
+                                	for (int i = 0; i < sentence.size(); i++){
+                                        	if (i == 0){
+                                                	output += sentence.get(0);
+                                        	} else {
+                                                	output = output + " " + sentence.get(i);
+                                        	}
+                                	}
+                                	System.out.println(output);
+					}
+				}
 			} else {
 				List<String> thought = new ArrayList<>(fragment);
 				memories.add(thought);
 				int lineIndex = Integer.parseInt(fragment.get(fragment.size() - 1));
 				fragment.remove(fragment.size() -1);
-				System.out.println(memories);
 				fragment = substituter(fragment, postsubstitutions);
 				finalSentence = recompose(fragment, keywords, lineIndex);
 				String output = "";
@@ -61,6 +78,40 @@ public class Chatbot {
             }
 	    System.out.println(goodbye.get(random.nextInt(goodbye.size())));
     }
+
+    public static List<String> recall(List<List<String>> memories, List<String> memory){
+	if (memories.isEmpty()){
+		return null;
+	}
+	Random rand = new Random();
+	int number = rand.nextInt(memories.size());
+	int size = memories.get(number).size();
+	String index = memories.get(number).get(size - 1);
+	int x = -1;
+	for (int i = 0; i < memory.size(); i++){
+		List<String> words = makeTokens(memory.get(i));
+		//make sure to add a default for if it can't find index in memory
+		if (words.get(0).equals(index)){
+			x = i;
+			break;
+		}
+	}
+	List<String> words = makeTokens(memory.get(x));
+	words.remove(0);
+	words.remove(0);
+	int k = 0;
+	while (!words.get(k).equals("()")){
+		k++;
+	}
+	words.remove(k);
+	List<String> thisMemory = new ArrayList<>(memories.get(number));
+	thisMemory.remove(size - 1);
+	Collections.reverse(thisMemory);
+	for (int e = 0; e < size - 1; e++){
+		words.add(k, thisMemory.get(e));
+	}
+	return words;
+    } 
 
     public static List<String> recompose(List<String> fragment, List<String> keywords, int index){
 	List<String> keywordLine = makeTokens(keywords.get(index));
