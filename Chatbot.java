@@ -12,34 +12,61 @@ public class Chatbot {
             List<String> goodbye = textRetriever(script, "GOODBYE");
             List<String> presubstitutions = textRetriever(script, "PRESUBSTITUTIONS");
             List<String> postsubstitutions = textRetriever(script, "POSTSUBSTITUTIONS");
-	        List<String> keywords = textRetriever(script, "KEYWORDS");
-	        System.out.println(greeting);
-	        while (isQuit == false){
-		        List<String> initialSentence = makeTokens(getInput());
-		        List<String> finalSentence = initialSentence;
-		        finalSentence = substituter(finalSentence, presubstitutions);
+	    List<String> keywords = textRetriever(script, "KEYWORDS");
+	    List<String> idle = textRetriever(script, "IDLE");
+	    List<String> quit = textRetriever(script, "QUIT");
+	    Random random = new Random();
+	    HashSet<Integer> banned = new HashSet<>();
+	    List<List<String>> memories = new ArrayList<>();
+	    System.out.println(greeting.get(random.nextInt(greeting.size())));
+	    while (isQuit == false){
+	    	List<String> initialSentence = makeTokens(getInput());
+		int q = -1;
+		for (int i = 0; i < quit.size(); i ++){
+			List<String> quitWords = makeTokens(quit.get(i));
+			q = compareWords(quitWords, initialSentence, banned);
+			if (q != -1){
+				break;
+			}
+		}
+		if (q == -1) {
+			List<String> finalSentence = initialSentence;
+			finalSentence = substituter(finalSentence, presubstitutions);
 			List<String> fragment = decompose(keywords, finalSentence);
 			if (fragment == null){
-				System.out.println("nul");
-				System.exit(0);
+				System.out.println();
+				System.out.println(idle.get(random.nextInt(idle.size())));
+			} else {
+				List<String> memory = new ArrayList<>(fragment);
+				memories.add(memory);
+				int lineIndex = Integer.parseInt(fragment.get(fragment.size() - 1));
+				fragment.remove(fragment.size() -1);
+				System.out.println(memories);
+				fragment = substituter(fragment, postsubstitutions);
+				finalSentence = recompose(fragment, keywords, lineIndex);
+				String output = "";
+				for (int i = 0; i < finalSentence.size(); i++){
+					if (i == 0){
+						output += finalSentence.get(0);
+					} else {
+						output = output + " " + finalSentence.get(i);
+					}
+				}
+       	    			System.out.println(output);
 			}
-			int lineIndex = Integer.parseInt(fragment.get(fragment.size() - 1));
-			fragment.remove(fragment.size() -1);
-			fragment = substituter(fragment, postsubstitutions);
-			finalSentence = recompose(fragment, keywords, lineIndex);
-        	    	System.out.println(finalSentence);
-	        }
-	        System.out.println(goodbye);
+		} else {
+			isQuit = true;
+		}
+            }
+	    System.out.println(goodbye.get(random.nextInt(goodbye.size())));
     }
 
     public static List<String> recompose(List<String> fragment, List<String> keywords, int index){
 	List<String> keywordLine = makeTokens(keywords.get(index));
-	System.out.println(keywordLine);
         while (!keywordLine.get(0).equals("<")){
         	keywordLine.remove(0);
         }
         keywordLine.remove(0);
-	System.out.println(keywordLine);
 	List<String> result = new ArrayList<>(keywordLine);
 	int wordNumber = 0;
 	while (!result.get(wordNumber).equals("()")){
@@ -79,7 +106,6 @@ public class Chatbot {
             }
         }
         return keywords;
-
     }
 
     public static List<String> textRetriever(List<String> input, String section){
@@ -89,7 +115,9 @@ public class Chatbot {
             keys.put("GOODBYE", "PRESUBSTITUTIONS");
             keys.put("PRESUBSTITUTIONS", "POSTSUBSTITUTIONS");
             keys.put("POSTSUBSTITUTIONS", "KEYWORDS");
-	        keys.put("KEYWORDS", "END");
+	    keys.put("KEYWORDS", "IDLE");
+	    keys.put("IDLE", "QUIT");
+	    keys.put("QUIT", "END");
             int i = 0;
             while (!input.get(i).equals(section)){
                 i++;
@@ -110,7 +138,6 @@ public class Chatbot {
             if(banned.contains(i) == false){
 		while (j < wordsToBeSwapped.size()){
                 	if (!input.get(i).equals(wordsToBeSwapped.get(j))){
-
                     		break;
                 	}
 			else if (input.get(i).equals(wordsToBeSwapped.get(j)) &&  i == input.size() - 1 && j < wordsToBeSwapped.size() - 1) {
@@ -195,7 +222,6 @@ public class Chatbot {
             		keywords.remove(k);
             		p--;
         	}
-		System.out.println(keywords);
 		index = compareWords(keywords, input, banned);
 		if (index > -1){
 			match = true;
@@ -206,22 +232,20 @@ public class Chatbot {
 	if (match == false){
 		return null;
 	}
-	System.out.println(index + " match index");
 	List<String> rule = makeTokens(keywordLines.get(x));
 	int k = 0;
-                while (!rule.get(k).equals("<")){
-                k++;
-                }
-                int p = makeTokens(keywordLines.get(x)).size() - k;
-                while (p > 0){
-                        rule.remove(k);
-                        p--;
-                }
-		while (!rule.get(0).equals(">")){
-                        rule.remove(0);
-                }
-                rule.remove(0);
-	System.out.println(rule);
+        while (!rule.get(k).equals("<")){
+        	k++;
+        }
+        int p = makeTokens(keywordLines.get(x)).size() - k;
+        while (p > 0){
+        	rule.remove(k);
+                p--;
+        }
+	while (!rule.get(0).equals(">")){
+        	rule.remove(0);
+        }
+        rule.remove(0);
 	String stopWord = "";
 	for (int c = 1; c < rule.size(); c++){
 		if (rule.get(c+1).equals("()")){
@@ -229,13 +253,11 @@ public class Chatbot {
 			break;
 		}
 	}
-	System.out.println(stopWord + " stopword");
         List<String> fragment = new ArrayList<>(input);
 	while (!fragment.get(0).equals(stopWord)){
 		fragment.remove(0);
 	}
 	String j = Integer.toString(x);
-	System.out.println(fragment);
 	fragment.add(j);
         return fragment;
     }

@@ -32,5 +32,15 @@ KEYWORDS
 feeling > * feeling () < You say you are () ? 
 I feel > * feel () < Why do you think you () ?
 I hate > * hate () < It's common to () .
-I love > * love () < That's positive, it's good to () .   
+I love > * love () < That's positive, it's good to () .
+IDLE
+Let's unpack that.
+I'm not sure what to say to that.
+Can you be clearer about that?
+Can you put that in simpler terms?
+Really?
+QUIT
+quit
+bye
+good bye   
 END
