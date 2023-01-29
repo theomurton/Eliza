@@ -18,11 +18,39 @@ public class Chatbot {
 		        List<String> initialSentence = makeTokens(getInput());
 		        List<String> finalSentence = initialSentence;
 		        finalSentence = substituter(finalSentence, presubstitutions);
-		        finalSentence = substituter(finalSentence, postsubstitutions);
 			List<String> fragment = decompose(keywords, finalSentence);
-        	    System.out.println(finalSentence);
+			if (fragment == null){
+				System.out.println("nul");
+				System.exit(0);
+			}
+			int lineIndex = Integer.parseInt(fragment.get(fragment.size() - 1));
+			fragment.remove(fragment.size() -1);
+			fragment = substituter(fragment, postsubstitutions);
+			finalSentence = recompose(fragment, keywords, lineIndex);
+        	    	System.out.println(finalSentence);
 	        }
 	        System.out.println(goodbye);
+    }
+
+    public static List<String> recompose(List<String> fragment, List<String> keywords, int index){
+	List<String> keywordLine = makeTokens(keywords.get(index));
+	System.out.println(keywordLine);
+        while (!keywordLine.get(0).equals("<")){
+        	keywordLine.remove(0);
+        }
+        keywordLine.remove(0);
+	System.out.println(keywordLine);
+	List<String> result = new ArrayList<>(keywordLine);
+	int wordNumber = 0;
+	while (!result.get(wordNumber).equals("()")){
+		wordNumber ++;
+	}
+	result.remove(wordNumber);
+	Collections.reverse(fragment);
+	for (int i = 0; i < fragment.size(); i++){
+		result.add(wordNumber, fragment.get(i));
+	}
+	return result;
     }
 
     public static String getInput(){
@@ -154,7 +182,7 @@ public class Chatbot {
     public static List<String> decompose(List<String> keywordLines, List<String> input){
 	boolean match = false;
 	int index = -1;
-	int x = -1;
+	Integer x = -1;
 	for (int i = 0; i < keywordLines.size(); i++){
 		HashSet<Integer> banned = new HashSet<>();
 		List<String> keywords = makeTokens(keywordLines.get(i));
@@ -178,7 +206,7 @@ public class Chatbot {
 	if (match == false){
 		return null;
 	}
-	System.out.println(index);
+	System.out.println(index + " match index");
 	List<String> rule = makeTokens(keywordLines.get(x));
 	int k = 0;
                 while (!rule.get(k).equals("<")){
@@ -194,16 +222,21 @@ public class Chatbot {
                 }
                 rule.remove(0);
 	System.out.println(rule);
-	List<String> stopWord = new ArrayList<>();
+	String stopWord = "";
 	for (int c = 1; c < rule.size(); c++){
 		if (rule.get(c+1).equals("()")){
-			stopWord.add(rule.get(c));
+			stopWord = rule.get(c);
 			break;
 		}
-		stopWord.add(rule.get(c));
 	}
 	System.out.println(stopWord + " stopword");
         List<String> fragment = new ArrayList<>(input);
+	while (!fragment.get(0).equals(stopWord)){
+		fragment.remove(0);
+	}
+	String j = Integer.toString(x);
+	System.out.println(fragment);
+	fragment.add(j);
         return fragment;
     }
 }

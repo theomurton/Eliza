@@ -32,7 +32,5 @@ KEYWORDS
 feeling > * feeling () < You say you are () ? 
 I feel > * feel () < Why do you think you () ?
 I hate > * hate () < It's common to () .
-I love > * love () < That's positive, it's good to () .
-happy > 
-sad >   
+I love > * love () < That's positive, it's good to () .   
 END
