@@ -179,7 +179,30 @@ public class Chatbot {
 		return null;
 	}
 	System.out.println(index);
-	List<String> rule = new ArrayList<>();
+	List<String> rule = makeTokens(keywordLines.get(x));
+	int k = 0;
+                while (!rule.get(k).equals("<")){
+                k++;
+                }
+                int p = makeTokens(keywordLines.get(x)).size() - k;
+                while (p > 0){
+                        rule.remove(k);
+                        p--;
+                }
+		while (!rule.get(0).equals(">")){
+                        rule.remove(0);
+                }
+                rule.remove(0);
+	System.out.println(rule);
+	List<String> stopWord = new ArrayList<>();
+	for (int c = 1; c < rule.size(); c++){
+		if (rule.get(c+1).equals("()")){
+			stopWord.add(rule.get(c));
+			break;
+		}
+		stopWord.add(rule.get(c));
+	}
+	System.out.println(stopWord + " stopword");
         List<String> fragment = new ArrayList<>(input);
         return fragment;
     }
