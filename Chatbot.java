@@ -36,10 +36,10 @@ public class Chatbot {
 			List<String> fragment = decompose(keywords, finalSentence);
 			if (fragment == null){
 				int chance = random.nextInt(11);
-				if (chance < 3){
+				if (chance < 5){
 					System.out.println(idle.get(random.nextInt(idle.size())));
 				}
-				if (chance >= 3){
+				if (chance >= 5){
 					if (recall(memories, memory) == null){
 						System.out.println(idle.get(random.nextInt(idle.size())));
 					} else {
@@ -56,11 +56,11 @@ public class Chatbot {
 					}
 				}
 			} else {
+				fragment = substituter(fragment, postsubstitutions);
 				List<String> thought = new ArrayList<>(fragment);
 				memories.add(thought);
 				int lineIndex = Integer.parseInt(fragment.get(fragment.size() - 1));
 				fragment.remove(fragment.size() -1);
-				fragment = substituter(fragment, postsubstitutions);
 				finalSentence = recompose(fragment, keywords, lineIndex);
 				String output = "";
 				for (int i = 0; i < finalSentence.size(); i++){
@@ -297,6 +297,7 @@ public class Chatbot {
 	while (!fragment.get(0).equals(stopWord)){
 		fragment.remove(0);
 	}
+	fragment.remove(0);
 	String j = Integer.toString(x);
 	fragment.add(j);
         return fragment;

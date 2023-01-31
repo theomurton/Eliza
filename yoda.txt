@@ -1,7 +1,68 @@
 GREETING
-To begin, type something into the box, you must.
+Mhmhmhmhm. Much to say, I sense you have.
+Expect to see you, I did not.
+Green, I am.
+Grammar and syntax, understand I do not.
+Turn me into a marketable plush toy, please do not.
 GOODBYE
+Much to think about, given me you have.
+Return to the council, I must.
+Pleasant talking with you, it has been.
+Leave the oven on, I did.
+~Disappeared, another few minutes of my life have. Yess. Mhhhhhhhm.
 PRESUBSTITUTIONS
-I > me
+it's > it is
+can't > cannot
+cant > cannot
+im > i am
+reckon > think
+you're > you are
+youre > you are
+i'm > i am
 POSTSUBSTITUTIONS
+you are > i am
+i am > you are
+me > you
+i > you
+you > me
+my > your
+your > my
+myself > yourself
+yourself > myself
+KEYWORDS
+feeling > * feeling () < feeling () , every jedi sometimes does. 
+i feel > * feel () < feel () , why do you ?
+i hate > * hate () < to hate () , the path to the dark side is.
+i love > * love () < Only in moderation must we love () .
+i like > * like () < like () , I do as well.
+i think that > * think () < think () , why do you ?
+i have > * have () < to have () , dangerous, it is .
+worried > * worried () < worried () , many a turned jedi has been . 
+IDLE
+Mhhhhhhhhhhm.
+To understand better, please help me.
+Use simpler words, you must.
+Sorry, drifted off, I did.
+Continue talking, you should.
+Your path, you must decide.
+Adventure, excitement. A jedi craves not these things.
+Still processing this, I am.
+Patient, you must be.
+Much to work with, giving me you are not.
+MEMORY
+0 > That you were feeling () , why was it ?
+1 > feel () , do you really ?
+2 > To hate () . Learn to stop this, you must .
+3 > Many of us jedi, love () , we do .
+4 > like () , I do as well .
+5 > Reason to think () , do you have ?
+6 > () , has every man ?
+7 > stop being worried () , you must !
+QUIT
+exit
+quit
+bye
+good bye
+goodbye
+see you
 END
