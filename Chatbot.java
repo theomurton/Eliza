@@ -44,6 +44,9 @@ public class Chatbot {
 						System.out.println(idle.get(random.nextInt(idle.size())));
 					} else {
 					List<String> sentence = recall(memories, memory);
+					int code = Integer.parseInt(sentence.get(sentence.size() - 1));
+					memories.remove(code);
+					sentence.remove(sentence.size() - 1);
 					String output  = "";
                                 	for (int i = 0; i < sentence.size(); i++){
                                         	if (i == 0){
@@ -110,6 +113,8 @@ public class Chatbot {
 	for (int e = 0; e < size - 1; e++){
 		words.add(k, thisMemory.get(e));
 	}
+	String code = Integer.toString(number);
+	words.add(code);
 	return words;
     }
 
@@ -136,7 +141,6 @@ public class Chatbot {
 		line.remove(0);
 		keywordLine.add(phrase);
 	}
-	System.out.println(keywordLine);
 	Random randy = new Random();
 	int ran = randy.nextInt(y);
 	List<String> result = new ArrayList<>(keywordLine.get(ran));

@@ -32,13 +32,13 @@ yourself > myself
 myself > yourself
 KEYWORDS
 feeling > * feeling () < You say you are feeling () ? | do you think your friends are feeling () ? |
-i feel > * feel () < Why do you think you feel () ? |
-i hate > * hate () < It's common to hate () . |
-i love > * love () < That's positive, it's good to love () . |
-i like > * like () < Everyone can like () . |
-i think that > * think () < Why do you think () ? |
-i have > * have () < Does it concern you have you have () ? |
-worried > * worried () < how long have you been () ? |
+i feel > * feel () < Why do you think you feel () ? | can it be bad to feel () ? |
+i hate > * hate () < It's common to hate () . | Hating () can make us sad . |
+i love > * love () < That's positive, it's good to love () . | Does loving () make you happy ? |
+i like > * like () < Everyone can like () . | How much do you like () ? |
+i think that > * think () < Why do you think () ? | How long have you thought () ? |
+i have > * have () < Does it concern you have you have () ? | Does having () worry you ? |
+worried > * worried () < how long have you been () ? |  Does worrying () help you ? | 
 IDLE
 Let's unpack that.
 I'm not sure what to say to that.
