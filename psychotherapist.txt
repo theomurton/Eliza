@@ -31,14 +31,14 @@ your > my
 yourself > myself
 myself > yourself
 KEYWORDS
-feeling > * feeling () < You say you are feeling () ? 
-i feel > * feel () < Why do you think you feel () ?
-i hate > * hate () < It's common to hate () .
-i love > * love () < That's positive, it's good to love () .
-i like > * like () < Everyone can like () .
-i think that > * think () < Why do you think () ?
-i have > * have () < Does it concern you have you have () ?
-worried > * worried () < how long have you been () ? 
+feeling > * feeling () < You say you are feeling () ? | do you think your friends are feeling () ? |
+i feel > * feel () < Why do you think you feel () ? |
+i hate > * hate () < It's common to hate () . |
+i love > * love () < That's positive, it's good to love () . |
+i like > * like () < Everyone can like () . |
+i think that > * think () < Why do you think () ? |
+i have > * have () < Does it concern you have you have () ? |
+worried > * worried () < how long have you been () ? |
 IDLE
 Let's unpack that.
 I'm not sure what to say to that.

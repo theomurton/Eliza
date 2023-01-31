@@ -111,15 +111,35 @@ public class Chatbot {
 		words.add(k, thisMemory.get(e));
 	}
 	return words;
-    } 
+    }
 
     public static List<String> recompose(List<String> fragment, List<String> keywords, int index){
-	List<String> keywordLine = makeTokens(keywords.get(index));
-        while (!keywordLine.get(0).equals("<")){
-        	keywordLine.remove(0);
+	List<List<String>> keywordLine = new ArrayList<>();
+	List<String> line = makeTokens(keywords.get(index));
+	//keywords.get(index)
+        while (!line.get(0).equals("<")){
+        	line.remove(0);
         }
-        keywordLine.remove(0);
-	List<String> result = new ArrayList<>(keywordLine);
+        line.remove(0);
+	int y = 0;
+	for (int j = 0; j < line.size(); j++){
+		if (line.get(j).equals("|")){
+			y++;
+		}
+	}
+	for (int z = 0; z < y; z++){
+		List<String> phrase = new ArrayList<>();
+		while (!line.get(0).equals("|")){
+			phrase.add(line.get(0));
+			line.remove(0);
+		}
+		line.remove(0);
+		keywordLine.add(phrase);
+	}
+	System.out.println(keywordLine);
+	Random randy = new Random();
+	int ran = randy.nextInt(y);
+	List<String> result = new ArrayList<>(keywordLine.get(ran));
 	int wordNumber = 0;
 	while (!result.get(wordNumber).equals("()")){
 		wordNumber ++;
