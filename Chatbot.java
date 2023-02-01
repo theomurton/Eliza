@@ -22,32 +22,39 @@ public class Chatbot {
 	    System.out.println(greeting.get(random.nextInt(greeting.size())));
 	    while (isQuit == false){
 	    	List<String> initialSentence = makeTokens(getInput());
-		int q = -1;
+		int comparison = -1;
+		//this little loop checks first for the quit keywords. By default the value of comparison is -1, no match. If this is altered by the Comapre words method then the program breaks to the quit section.
 		for (int i = 0; i < quit.size(); i ++){
 			List<String> quitWords = makeTokens(quit.get(i));
-			q = compareWords(quitWords, initialSentence, banned);
-			if (q != -1){
+			comparison = compareWords(quitWords, initialSentence, banned);
+			if (comparison != -1){
 				break;
 			}
 		}
+		//in the event of no quit keywords found
 		if (q == -1) {
 			List<String> finalSentence = initialSentence;
 			finalSentence = substituter(finalSentence, presubstitutions);
 			List<String> fragment = decompose(keywords, finalSentence);
+			//the fragment is null only if there are no keyword matches.
 			if (fragment == null){
 				int chance = random.nextInt(11);
+				//if there are no keyword matches there is a 2/5 chance of a generic idle message and a 3/5 chance of a specific message that relates to something the user previously said
 				if (chance < 5){
 					System.out.println(idle.get(random.nextInt(idle.size())));
 				}
 				if (chance >= 5){
+				//if the specific route is taken but there are no 'memories' in data then it defaults to giving a generic idle message instead
 					if (recall(memories, memory) == null){
 						System.out.println(idle.get(random.nextInt(idle.size())));
 					} else {
 					List<String> sentence = recall(memories, memory);
 					int code = Integer.parseInt(sentence.get(sentence.size() - 1));
+					// the code is an appended integer to the end of the returned sentence. It denotes which memory was randomly picked. This memory is removed as we don't want repeats
 					memories.remove(code);
 					sentence.remove(sentence.size() - 1);
 					String output  = "";
+					// converts from list to a string sentence.
                                 	for (int i = 0; i < sentence.size(); i++){
                                         	if (i == 0){
                                                 	output += sentence.get(0);
@@ -59,16 +66,19 @@ public class Chatbot {
 					}
 				}
 			} else {
+				//in the case a keyword is found
 				fragment = substituter(fragment, postsubstitutions);
 				List<String> thought = new ArrayList<>(fragment);
 				int lineIndex = Integer.parseInt(fragment.get(fragment.size() - 1));
 				fragment.remove(fragment.size() -1);
 				finalSentence = recompose(fragment, keywords, lineIndex);
+				// this checks if the last element of the returned list is 'true' denoting that there is a stored memory. If so the memory is added. In either case this last element is then deleted.
 				if (finalSentence.get(finalSentence.size() - 1).equals("true")){
 					memories.add(thought);
 				}
 				finalSentence.remove(finalSentence.size() - 1);
 				String output = "";
+				// conversion from list to string
 				for (int i = 0; i < finalSentence.size(); i++){
 					if (i == 0){
 						output += finalSentence.get(0);
@@ -79,24 +89,28 @@ public class Chatbot {
        	    			System.out.println(output);
 			}
 		} else {
+			//if a quit keyword is found this is jumped to straight away
 			isQuit = true;
 		}
             }
+	//once the while loop is broken a random goodbye message displays
 	    System.out.println(goodbye.get(random.nextInt(goodbye.size())));
     }
-
+// below method recalls earlier fragments from keywords and recomposes them
     public static List<String> recall(List<List<String>> memories, List<String> memory){
+	// if there are no memories null is returned and dealt with appropriately
 	if (memories.isEmpty()){
 		return null;
 	}
 	Random rand = new Random();
+	// need to randomly choose a memory to seem more lifelike
 	int number = rand.nextInt(memories.size());
 	int size = memories.get(number).size();
 	String index = memories.get(number).get(size - 1);
 	int x = -1;
+	//this method takes the end of the memory list, which is a number denoting which memory method is should take
 	for (int i = 0; i < memory.size(); i++){
 		List<String> words = makeTokens(memory.get(i));
-		//make sure to add a default for if it can't find index in memory
 		if (words.get(0).equals(index)){
 			x = i;
 			break;
@@ -116,6 +130,7 @@ public class Chatbot {
 	for (int e = 0; e < size - 1; e++){
 		words.add(k, thisMemory.get(e));
 	}
+	// the random index is returned so the memory can be deleted so it is not reused, breaking the illusion
 	String code = Integer.toString(number);
 	words.add(code);
 	return words;
@@ -148,6 +163,7 @@ public class Chatbot {
 	int ran = randy.nextInt(y);
 	List<String> result = new ArrayList<>(keywordLine.get(ran));
 	int wordNumber = 0;
+	// for some recomposition rules, for instance for 'yes', we just want to say something relevant but not parrot back what they said. Hence we have a boolean which tracks if the rule for out keyword contains a bracket (denoting where the stored fragment should be inserted)
 	boolean bracket = true;
 	while (!result.get(wordNumber).equals("()")){
 		if (wordNumber + 1 == result.size()){
@@ -156,6 +172,7 @@ public class Chatbot {
 		}
 		wordNumber ++;
 	}
+	//removing the brackets character itself if it is found
 	if (bracket == true){
 	result.remove(wordNumber);
 	}
@@ -163,8 +180,9 @@ public class Chatbot {
 	for (int i = 0; i < fragment.size(); i++){
 		result.add(wordNumber, fragment.get(i));
 	}
-	String special = Boolean.toString(bracket);
-	result.add(special);
+	// appends a temporary true or false to the end of the list depending on whether the rule has a bracket or not. If it doesn't the main method won't add it as a memory
+	String foundBracket = Boolean.toString(bracket);
+	result.add(foundBracket);
 	return result;
     }
 
@@ -182,7 +200,7 @@ public class Chatbot {
         }
         return tokens;
     }
-
+//this method reads between the hashmap values to get the relevant text
     public static List<String> textRetriever(List<String> input, String section){
             List<String> result = new ArrayList<String>();
             HashMap<String, String> keys = new HashMap<String, String>();
@@ -190,10 +208,10 @@ public class Chatbot {
             keys.put("GOODBYE", "PRESUBSTITUTIONS");
             keys.put("PRESUBSTITUTIONS", "POSTSUBSTITUTIONS");
             keys.put("POSTSUBSTITUTIONS", "KEYWORDS");
-	    	keys.put("KEYWORDS", "IDLE");
-	    	keys.put("IDLE", "MEMORY");
-	    	keys.put("MEMORY", "QUIT");
-	    	keys.put("QUIT", "END");
+	    keys.put("KEYWORDS", "IDLE");
+	    keys.put("IDLE", "MEMORY");
+	    keys.put("MEMORY", "QUIT");
+	    keys.put("QUIT", "END");
             int i = 0;
             while (!input.get(i).equals(section)){
                 i++;
@@ -205,7 +223,7 @@ public class Chatbot {
             }
             return result;
     }
-
+//compare words method returns the index of the first word matched if there is a match and -1 if there is not match. This method is long as it needs to be clever enough to catch mutliple word keywords
     public static int compareWords(List<String> wordsToBeSwapped, List<String> input, HashSet<Integer> banned){
         int result = -1;
         for (int i = 0; i < input.size(); i++){
@@ -232,11 +250,12 @@ public class Chatbot {
 	}
         return result;
     }
-
+//substituter deals with pre and post substitutions. It has to be long as it keeps track of all the differences at certain indexes, as keywords and their substitutions often vary in length.
     public static List<String> substituter(List<String> input, List<String> substitutions){
 	List<String> provisional = new ArrayList<>(input);
 	HashMap<Integer, Integer> differences = new HashMap<>();
 	List<String> result = new ArrayList<>(input);
+	//a banned set of indexes that have been found to contain keywords is required. This stops the method looking at these keywords as they have already been verified as keywords and we don't want loops from you are to i am back to you are etc etc etc
 	HashSet<Integer> banned = new HashSet<>();
 	int totalDifference = 0;
     	for (int i = 0; i < substitutions.size(); i++){
@@ -256,10 +275,11 @@ public class Chatbot {
             		wordsToBeSwapped.remove(k);
             		p--;
         	}
-		// this is the new loop that makes it multiple runs for each rule
+		// this is the new loop that makes it multiple runs for each rule in case something like 'i' is multiple times in a line.
 		for (int j = 0; j < input.size(); j ++){
         		int index = compareWords(wordsToBeSwapped, provisional, banned);
 			if (index > -1){
+				//relevant differences is the differences before the index we are interested in- by how much should we offset the current substitution based on previous substitutions?
 				int relevantDifferences = 0;
 				for (int ind : differences.keySet()){
 					if (ind < index){
@@ -281,7 +301,7 @@ public class Chatbot {
         return result;
     }
 
-
+//this method checks for keywords and then decomposes
     public static List<String> decompose(List<String> keywordLines, List<String> input){
 	boolean match = false;
 	int index = -1;
