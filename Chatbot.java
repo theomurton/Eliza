@@ -61,10 +61,13 @@ public class Chatbot {
 			} else {
 				fragment = substituter(fragment, postsubstitutions);
 				List<String> thought = new ArrayList<>(fragment);
-				memories.add(thought);
 				int lineIndex = Integer.parseInt(fragment.get(fragment.size() - 1));
 				fragment.remove(fragment.size() -1);
 				finalSentence = recompose(fragment, keywords, lineIndex);
+				if (finalSentence.get(finalSentence.size() - 1).equals("true")){
+					memories.add(thought);
+				}
+				finalSentence.remove(finalSentence.size() - 1);
 				String output = "";
 				for (int i = 0; i < finalSentence.size(); i++){
 					if (i == 0){
@@ -160,6 +163,8 @@ public class Chatbot {
 	for (int i = 0; i < fragment.size(); i++){
 		result.add(wordNumber, fragment.get(i));
 	}
+	String special = Boolean.toString(bracket);
+	result.add(special);
 	return result;
     }
 
