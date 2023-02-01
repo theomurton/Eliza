@@ -32,7 +32,7 @@ public class Chatbot {
 			}
 		}
 		//in the event of no quit keywords found
-		if (q == -1) {
+		if (comparison == -1) {
 			List<String> finalSentence = initialSentence;
 			finalSentence = substituter(finalSentence, presubstitutions);
 			List<String> fragment = decompose(keywords, finalSentence);
