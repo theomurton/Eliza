@@ -145,10 +145,17 @@ public class Chatbot {
 	int ran = randy.nextInt(y);
 	List<String> result = new ArrayList<>(keywordLine.get(ran));
 	int wordNumber = 0;
+	boolean bracket = true;
 	while (!result.get(wordNumber).equals("()")){
+		if (wordNumber + 1 == result.size()){
+		bracket = false;
+		break;
+		}
 		wordNumber ++;
 	}
+	if (bracket == true){
 	result.remove(wordNumber);
+	}
 	Collections.reverse(fragment);
 	for (int i = 0; i < fragment.size(); i++){
 		result.add(wordNumber, fragment.get(i));
@@ -178,10 +185,10 @@ public class Chatbot {
             keys.put("GOODBYE", "PRESUBSTITUTIONS");
             keys.put("PRESUBSTITUTIONS", "POSTSUBSTITUTIONS");
             keys.put("POSTSUBSTITUTIONS", "KEYWORDS");
-	    keys.put("KEYWORDS", "IDLE");
-	    keys.put("IDLE", "MEMORY");
-	    keys.put("MEMORY", "QUIT");
-	    keys.put("QUIT", "END");
+	    	keys.put("KEYWORDS", "IDLE");
+	    	keys.put("IDLE", "MEMORY");
+	    	keys.put("MEMORY", "QUIT");
+	    	keys.put("QUIT", "END");
             int i = 0;
             while (!input.get(i).equals(section)){
                 i++;

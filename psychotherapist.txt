@@ -38,7 +38,8 @@ i love > * love () < That's positive, it's good to love () . | Does loving () ma
 i like > * like () < Everyone can like () . | How much do you like () ? |
 i think that > * think () < Why do you think () ? | How long have you thought () ? |
 i have > * have () < Does it concern you have you have () ? | Does having () worry you ? |
-worried > * worried () < how long have you been () ? |  Does worrying () help you ? | 
+worried > * worried () < how long have you been () ? |  Does worrying () help you ? |
+yes > * yes () < you seem sure . | 
 IDLE
 Let's unpack that.
 I'm not sure what to say to that.
