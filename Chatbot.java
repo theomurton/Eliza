@@ -19,8 +19,17 @@ public class Chatbot {
 	    Random random = new Random();
 	    HashSet<Integer> banned = new HashSet<>();
 	    List<List<String>> memories = new ArrayList<>();
+	    int tempRandom = -1;
+	    int idleRandom = -1;
 	    System.out.println(greeting.get(random.nextInt(greeting.size())));
 	    while (isQuit == false){
+		//temporarily stored random value ensures idle responses are not done twice in a row
+		tempRandom = idleRandom;
+		idleRandom = random.nextInt(idle.size());
+		while (idleRandom == tempRandom){
+			tempRandom = idleRandom;
+			idleRandom = random.nextInt(idle.size());
+		}
 	    	List<String> initialSentence = makeTokens(getInput());
 		int comparison = -1;
 		//this little loop checks first for the quit keywords. By default the value of comparison is -1, no match. If this is altered by the Comapre words method then the program breaks to the quit section.
@@ -41,12 +50,12 @@ public class Chatbot {
 				int chance = random.nextInt(11);
 				//if there are no keyword matches there is a 2/5 chance of a generic idle message and a 3/5 chance of a specific message that relates to something the user previously said
 				if (chance < 5){
-					System.out.println(idle.get(random.nextInt(idle.size())));
+					System.out.println(idle.get(idleRandom));
 				}
 				if (chance >= 5){
 				//if the specific route is taken but there are no 'memories' in data then it defaults to giving a generic idle message instead
 					if (recall(memories, memory) == null){
-						System.out.println(idle.get(random.nextInt(idle.size())));
+						System.out.println(idle.get(idleRandom));
 					} else {
 					List<String> sentence = recall(memories, memory);
 					int code = Integer.parseInt(sentence.get(sentence.size() - 1));
