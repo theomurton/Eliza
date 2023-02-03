@@ -184,10 +184,11 @@ public class Chatbot {
 	//removing the brackets character itself if it is found
 	if (bracket == true){
 	result.remove(wordNumber);
-	}
+	
 	Collections.reverse(fragment);
 	for (int i = 0; i < fragment.size(); i++){
 		result.add(wordNumber, fragment.get(i));
+	}
 	}
 	// appends a temporary true or false to the end of the list depending on whether the rule has a bracket or not. If it doesn't the main method won't add it as a memory
 	String foundBracket = Boolean.toString(bracket);

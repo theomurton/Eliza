@@ -39,7 +39,10 @@ i like > * like () < Everyone can like () . | How much do you like () ? |
 i think that > * think () < Why do you think () ? | How long have you thought () ? |
 i have > * have () < Does it concern you have you have () ? | Does having () worry you ? |
 worried > * worried () < how long have you been () ? |  Does worrying () help you ? |
-yes > * yes () < you seem sure . | 
+yes > * yes () < you seem sure . |
+no > * no () < are you just being contrary ? |
+i want to > * to () < Is it right to want to () ? |
+should i > * i () < it's for you to decide if you should () . |  
 IDLE
 Let's unpack that.
 I'm not sure what to say to that.
@@ -59,6 +62,8 @@ MEMORY
 5 > Do you still think () ?
 6 > Does everyone have () ?
 7 > How can you stop being worried () ?
+10 > Does everyone want to () ?
+11 > should you () ?
 QUIT
 exit
 quit
