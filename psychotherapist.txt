@@ -42,7 +42,8 @@ worried > * worried () < how long have you been () ? |  Does worrying () help yo
 yes > * yes () < you seem sure . |
 no > * no () < are you just being contrary ? |
 i want to > * to () < Is it right to want to () ? |
-should i > * i () < it's for you to decide if you should () . |  
+should i > * i () < it's for you to decide if you should () . |
+i adore > SYNONYM i love | <
 IDLE
 Let's unpack that.
 I'm not sure what to say to that.

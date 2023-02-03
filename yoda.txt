@@ -9,7 +9,7 @@ Much to think about, given me you have.
 Return to the council, I must.
 Pleasant talking with you, it has been.
 Leave the oven on, I did.
-~Disappeared, another few minutes of my life have. Yess. Mhhhhhhhm.
+Disappeared, another few minutes of my life have. Yess. Mhhhhhhhm.
 PRESUBSTITUTIONS
 it's > it is
 can't > cannot
@@ -30,14 +30,14 @@ your > my
 myself > yourself
 yourself > myself
 KEYWORDS
-feeling > * feeling () < feeling () , every jedi sometimes does. 
-i feel > * feel () < feel () , why do you ?
-i hate > * hate () < to hate () , the path to the dark side is.
-i love > * love () < Only in moderation must we love () .
-i like > * like () < like () , I do as well.
-i think that > * think () < think () , why do you ?
-i have > * have () < to have () , dangerous, it is .
-worried > * worried () < worried () , many a turned jedi has been . 
+feeling > * feeling () < feeling () , every jedi sometimes does. | 
+i feel > * feel () < feel () , why do you ? |
+i hate > * hate () < to hate () , the path to the dark side is. |
+i love > * love () < Only in moderation must we love () . |
+i like > * like () < like () , I do as well. |
+i think that > * think () < think () , why do you ? |
+i have > * have () < to have () , dangerous, it is . |
+worried > * worried () < worried () , many a turned jedi has been . |
 IDLE
 Mhhhhhhhhhhm.
 To understand better, please help me.

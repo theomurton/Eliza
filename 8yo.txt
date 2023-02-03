@@ -1,0 +1,44 @@
+GREETING
+Hiya, what do you like talking about?
+Mum says I shouldn't talk to strangers.
+Do you like lego?
+I like lego.
+Do you know when lunch is?
+GOODBYE
+I'm going to go and watch TV now.
+I'm bored, bye.
+Nice talking.
+PRESUBSTITUTIONS
+it's > it is
+can't > cannot
+cant > cannot
+im > i am
+reckon > think
+you're > you are
+youre > you are
+i'm > i am
+POSTSUBSTITUTIONS
+you are > i am
+i am > you are
+me > you
+i > you
+you > me
+my > your
+your > my
+yourself > myself
+myself > yourself
+KEYWORDS
+I have > * have () < Why do you have () ? |
+IDLE
+What do you mean?
+No.
+MEMORY
+0 > I still don't understand why you have () .
+QUIT
+exit
+quit
+bye
+good bye
+goodbye
+see you
+END

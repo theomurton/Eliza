@@ -5,13 +5,14 @@ import java.io.*;
 
 public class Chatbot {
 
-    public static void main(String args[])throws IOException {
-            boolean isQuit = false;
-            List<String> script = Files.readAllLines(Paths.get(args[0]));
-            List<String> greeting = textRetriever(script, "GREETING");
-            List<String> goodbye = textRetriever(script, "GOODBYE");
-            List<String> presubstitutions = textRetriever(script, "PRESUBSTITUTIONS");
-            List<String> postsubstitutions = textRetriever(script, "POSTSUBSTITUTIONS");
+    public static void main(String args[]) throws IOException {
+		String punctuation = "?.!,";
+        boolean isQuit = false;
+        List<String> script = Files.readAllLines(Paths.get(args[0]));
+        List<String> greeting = textRetriever(script, "GREETING");
+        List<String> goodbye = textRetriever(script, "GOODBYE");
+        List<String> presubstitutions = textRetriever(script, "PRESUBSTITUTIONS");
+        List<String> postsubstitutions = textRetriever(script, "POSTSUBSTITUTIONS");
 	    List<String> keywords = textRetriever(script, "KEYWORDS");
 	    List<String> idle = textRetriever(script, "IDLE");
 	    List<String> memory = textRetriever(script, "MEMORY");
@@ -62,16 +63,7 @@ public class Chatbot {
 					// the code is an appended integer to the end of the returned sentence. It denotes which memory was randomly picked. This memory is removed as we don't want repeats
 					memories.remove(code);
 					sentence.remove(sentence.size() - 1);
-					String output  = "";
-					// converts from list to a string sentence.
-                                	for (int i = 0; i < sentence.size(); i++){
-                                        	if (i == 0){
-                                                	output += sentence.get(0);
-                                        	} else {
-                                                	output = output + " " + sentence.get(i);
-                                        	}
-                                	}
-                                	System.out.println(output);
+					System.out.println(makeFinalSentence(sentence, punctuation));
 					}
 				}
 			} else {
@@ -86,16 +78,7 @@ public class Chatbot {
 					memories.add(thought);
 				}
 				finalSentence.remove(finalSentence.size() - 1);
-				String output = "";
-				// conversion from list to string
-				for (int i = 0; i < finalSentence.size(); i++){
-					if (i == 0){
-						output += finalSentence.get(0);
-					} else {
-						output = output + " " + finalSentence.get(i);
-					}
-				}
-       	    			System.out.println(output);
+				System.out.println(makeFinalSentence(finalSentence, punctuation));
 			}
 		} else {
 			//if a quit keyword is found this is jumped to straight away
@@ -183,8 +166,7 @@ public class Chatbot {
 	}
 	//removing the brackets character itself if it is found
 	if (bracket == true){
-	result.remove(wordNumber);
-	
+	result.remove(wordNumber);	
 	Collections.reverse(fragment);
 	for (int i = 0; i < fragment.size(); i++){
 		result.add(wordNumber, fragment.get(i));
@@ -199,6 +181,7 @@ public class Chatbot {
     public static String getInput(){
         Scanner scan = new Scanner(System.in);
         String text = scan.nextLine();
+		text = text.replaceAll("[,?!.]", "");
         return text;
     }
 
@@ -218,10 +201,10 @@ public class Chatbot {
             keys.put("GOODBYE", "PRESUBSTITUTIONS");
             keys.put("PRESUBSTITUTIONS", "POSTSUBSTITUTIONS");
             keys.put("POSTSUBSTITUTIONS", "KEYWORDS");
-	    keys.put("KEYWORDS", "IDLE");
-	    keys.put("IDLE", "MEMORY");
-	    keys.put("MEMORY", "QUIT");
-	    keys.put("QUIT", "END");
+	    	keys.put("KEYWORDS", "IDLE");
+	    	keys.put("IDLE", "MEMORY");
+	    	keys.put("MEMORY", "QUIT");
+	    	keys.put("QUIT", "END");
             int i = 0;
             while (!input.get(i).equals(section)){
                 i++;
@@ -316,9 +299,10 @@ public class Chatbot {
 	boolean match = false;
 	int index = -1;
 	Integer x = -1;
+	List<String> keywords = new ArrayList<>();
 	for (int i = 0; i < keywordLines.size(); i++){
 		HashSet<Integer> banned = new HashSet<>();
-		List<String> keywords = makeTokens(keywordLines.get(i));
+		keywords = makeTokens(keywordLines.get(i));
         	int k = 0;
         	while (!keywords.get(k).equals(">")){
             		k++;
@@ -352,6 +336,22 @@ public class Chatbot {
         	rule.remove(0);
         }
         rule.remove(0);
+	if (rule.get(0).equals("synonym")){
+		List<String> substitutions = new ArrayList<>();
+		String sub = "";
+		for (int g = 0; g < keywords.size(); g++){
+			sub = sub + " " + keywords.get(g);
+		}
+		sub += " >";
+		int t = 1;
+		while (!rule.get(t).equals("|")){
+			sub = sub + " " + rule.get(t);
+			t++;
+		}
+		substitutions.add(sub);
+		List<String> newSynonym = substituter(input, substitutions);
+		return decompose(keywordLines, newSynonym);
+	}
 	String stopWord = "";
 	for (int c = 1; c < rule.size(); c++){
 		if (rule.get(c+1).equals("()")){
@@ -368,4 +368,20 @@ public class Chatbot {
 	fragment.add(j);
         return fragment;
     }
+
+	public static String makeFinalSentence(List<String> sentence, String punctuation){
+		String output  = "";
+        for (int i = 0; i < sentence.size(); i++){
+			if (punctuation.contains(sentence.get(i))){
+				output += sentence.get(i);
+			}
+            else if (i == 0){
+                output += sentence.get(0);
+            } else {
+            	output = output + " " + sentence.get(i);
+            }
+        }
+		String last = output.substring(0, 1).toUpperCase() + output.substring(1);
+        return last;
+	}
 }
