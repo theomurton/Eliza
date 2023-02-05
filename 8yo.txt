@@ -28,12 +28,38 @@ your > my
 yourself > myself
 myself > yourself
 KEYWORDS
-I have > * have () < Why do you have () ? |
+i do not know > * know () < why don't you know () ? |
+feeling > * feeling () < i love feeling () . | mum says when i am feeling () i should give her a hug . |
+i feel > * feel () < what do you mean you feel () ? | i bet you always () ? |
+i hate > * hate () < i hate () too . | dad says we shouldn't hate things . |
+i love > * love () < My mum says she loves that too . | i don't . |
+i like > * like () < My friend likes () , but he's stupid . |
+i think that > * think () < Why do you think () ? |
+i have > * have () < have () < Why do you have () ? | I think my mum said she had () . |
+i want to > * to () < now i want to () too ! |
+can i > * i () < i'll have to ask dad if you can () . |
+do you > * you () <  what do you think ? am i the sort of boy who looks like i () ? |
+yes > * yes () < you seem sure . | is that certain ? |
+maybe > * maybe () < maybe shmaybe ! |
+no > * no () < no no no no no ! | 
+thanks > * thanks () < it's actually thank you . |
+worried > * worried () < i am worried that i won't get sweets this Friday . |
+should i > * i () < I'll have to ask mum . |
 IDLE
 What do you mean?
 No.
 MEMORY
-0 > I still don't understand why you have () .
+0 > i was thinking, and i don't know () either .
+1 > now i'm feeling () too .
+2 > do you still feel () ?
+3 > doesn't it feel bad to hate () ? Dad says we shouldn't .
+4 > i think i love () too .
+5 > does liking () make you cool ?
+6 > my teacher also thinks that () .
+7 > i still don't understand why you have () .
+8 > I think my brother wants to () too , maybe you should talk .
+9 > maybe if you can () then i can play on the wii .
+10 > did you really think i () ?
 QUIT
 exit
 quit

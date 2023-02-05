@@ -12,6 +12,8 @@ Thanks, please send the next patient in.
 That will be £200 please.
 Well that was certainly better than last week.
 PRESUBSTITUTIONS
+dont > do not
+don't > do not
 it's > it is
 can't > cannot
 cant > cannot
@@ -20,6 +22,11 @@ reckon > think
 you're > you are
 youre > you are
 i'm > i am
+we're > we are
+he's > he is
+she's > she is
+ive > i have
+i've > i have
 POSTSUBSTITUTIONS
 you are > i am
 i am > you are
@@ -31,6 +38,7 @@ your > my
 yourself > myself
 myself > yourself
 KEYWORDS
+i do not know > * know () < sometimes it is impossible to know () . |
 feeling > * feeling () < You say you are feeling () ? | do you think your friends are feeling () ? |
 i feel > * feel () < Why do you think you feel () ? | can it be bad to feel () ? |
 i hate > * hate () < It's common to hate () . | Hating () can make us sad . |
@@ -39,11 +47,26 @@ i like > * like () < Everyone can like () . | How much do you like () ? |
 i think that > * think () < Why do you think () ? | How long have you thought () ? |
 i have > * have () < Does it concern you have you have () ? | Does having () worry you ? |
 worried > * worried () < how long have you been () ? |  Does worrying () help you ? |
-yes > * yes () < you seem sure . |
-no > * no () < are you just being contrary ? |
-i want to > * to () < Is it right to want to () ? |
+i want to > * to () < is it right to want to () ? |
 should i > * i () < it's for you to decide if you should () . |
+can i > * i () < does the thought of being able to scare you ? |
+yes > * yes () < you seem sure . | is that certain ? |
+maybe > * maybe () < how can we be sure ? |
+no > * no () < are you just being contrary ? |
+do you > * you () <  let's not dicuss me . |
+thanks > * thanks () < great, looks like we're making progress . |
 i adore > SYNONYM i love | <
+i admire > SYNONYM i love | <
+i loathe > SYNONYM i hate | <
+i detest > SYNONYM i hate | <
+i abhor > SYNONYM i hate | <
+i reckon > SYNONYM i think that | <
+i expect > SYNONYM i think that | <
+i guess > SYNONYM i think that | <
+i assume > SYNONYM i think that | <
+concerned > SYNONYM worried | <
+ought i > SYNONYM should i | <
+never > SYNONYM no | <
 IDLE
 Let's unpack that.
 I'm not sure what to say to that.
@@ -55,16 +78,17 @@ It's good to talk about these things.
 Is that so?
 What makes you think that?
 MEMORY
-0 > Earlier you said were feeling () . Want to talk more about that ?
-1 > Do you still feel () ?
-2 > Okay, you said you hate () ?
-3 > Do you think it is right to love () ?
-4 > Do you still like () ?
-5 > Do you still think () ?
-6 > Does everyone have () ?
-7 > How can you stop being worried () ?
-10 > Does everyone want to () ?
-11 > should you () ?
+0 > it can be hard to know () .
+1 > Earlier you said were feeling () . Want to talk more about that ?
+2 > Do you still feel () ?
+3 > Okay, you said you hate () ?
+4 > Do you think it is right to love () ?
+5 > Do you still like () ?
+6 > Do you still think () ?
+7 > Does everyone have () ?
+8 > How can you stop being worried () ?
+9 > Does everyone want to () ?
+10 > should you () ?
 QUIT
 exit
 quit

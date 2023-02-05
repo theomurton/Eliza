@@ -166,7 +166,7 @@ public class Chatbot {
 	}
 	//removing the brackets character itself if it is found
 	if (bracket == true){
-	result.remove(wordNumber);	
+	result.remove(wordNumber);
 	Collections.reverse(fragment);
 	for (int i = 0; i < fragment.size(); i++){
 		result.add(wordNumber, fragment.get(i));
