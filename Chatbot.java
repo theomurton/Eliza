@@ -352,18 +352,26 @@ public class Chatbot {
 		List<String> newSynonym = substituter(input, substitutions);
 		return decompose(keywordLines, newSynonym);
 	}
-	else if (rule.get(0).equals("*")){
-        	List<String> fragment = new ArrayList<>(input)
+	else if (rule.get(0).equals("*") && rule.get(1).equals("()")){
+        	List<String> fragment = new ArrayList<>(input);
 		int c = 0;
-		while (c != x){
+		while (c != index + keywords.size() - 1){
 			fragment.remove(0);
 			c++;
 		}
+		fragment.remove(0);
 		String j = Integer.toString(x);
 		fragment.add(j);
         	return fragment;
 	} else {
-		//herehrkggggggggggggggggggggggggggggggggggggggggggggggggggjhjhj
+		List<String> fragment = new ArrayList<>();
+		for (int a = 0; a < index; a++){
+			fragment.add(input.get(a));
+		}
+		Collections.reverse(fragment);
+		String j = Integer.toString(x);
+                fragment.add(j);
+		return fragment;
 	}
     }
 

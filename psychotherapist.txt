@@ -38,25 +38,26 @@ your > my
 yourself > myself
 myself > yourself
 KEYWORDS
-i do not know > * know () < sometimes it is impossible to know () . |
-feeling > * feeling () < You say you are feeling () ? | do you think your friends are feeling () ? |
-i feel > * feel () < Why do you think you feel () ? | can it be bad to feel () ? |
-i hate > * hate () < It's common to hate () . | Hating () can make us sad . |
-i love > * love () < That's positive, it's good to love () . | Does loving () make you happy ? |
-i like > * like () < Everyone can like () . | How much do you like () ? |
-i think that > * think () < Why do you think () ? | How long have you thought () ? |
-i have > * have () < Does it concern you have you have () ? | Does having () worry you ? |
-worried > * worried () < how long have you been () ? |  Does worrying () help you ? |
-i want to > * to () < is it right to want to () ? |
-should i > * i () < it's for you to decide if you should () . |
-can i > * i () < does the thought of being able to scare you ? |
-yes > * yes () < you seem sure . | is that certain ? |
-maybe > * maybe () < how can we be sure ? |
-no > * no () < are you just being contrary ? |
-do you > * you () <  let's not dicuss me . |
-thanks > * thanks () < great, looks like we're making progress . |
-died > * died () < i'm so sorry . |
-sorry > * sorry () < don't apologise . | there is no need to apologise . |
+i do not know > * () < sometimes it is impossible to know () . |
+feeling > * () < You say you are feeling () ? | do you think your friends are feeling () ? |
+i feel > * () < Why do you think you feel () ? | can it be bad to feel () ? |
+i hate > * () < It's common to hate () . | Hating () can make us sad . |
+i love > * () < That's positive, it's good to love () . | Does loving () make you happy ? |
+i like > * () < Everyone can like () . | How much do you like () ? |
+i think that > * () < Why do you think () ? | How long have you thought () ? |
+i have > * () < Does it concern you have you have () ? | Does having () worry you ? |
+worried > * () < how long have you been () ? |  Does worrying () help you ? |
+i want to > * () < is it right to want to () ? |
+should i > * () < it's for you to decide if you should () . |
+died > () * < i'm so sorry that () died . |
+can i > * () < does the thought of being able to scare you ? |
+yes > * () < you seem sure . | is that certain ? |
+maybe > * () < how can we be sure ? |
+no > * () < are you just being contrary ? |
+do you think > * () < it doesn't matter what i think . |
+do you > * () <  let's not dicuss me . |
+thanks > * () < great, looks like we're making progress . |
+sorry > * () < don't apologise . | there is no need to apologise . |
 i adore > SYNONYM i love | <
 i admire > SYNONYM i love | <
 i loathe > SYNONYM i hate | <
@@ -91,6 +92,7 @@ MEMORY
 8 > How can you stop being worried () ?
 9 > Does everyone want to () ?
 10 > should you () ?
+11 > since () died , what have you done ?
 QUIT
 exit
 quit
