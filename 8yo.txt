@@ -17,6 +17,8 @@ reckon > think
 you're > you are
 youre > you are
 i'm > i am
+don't > do not
+dont > do not
 POSTSUBSTITUTIONS
 you are > i am
 i am > you are
@@ -39,7 +41,10 @@ i have > * have () < have () < Why do you have () ? | I think my mum said she ha
 i want to > * to () < now i want to () too ! |
 can i > * i () < i'll have to ask dad if you can () . |
 do you understand > * understand () < of course i understand () ! |
-do you > * you () <  what do you think ? am i the sort of boy who looks like i () ? | 
+how do you > * you () < maybe you could ask dad how you () ? |
+do you > * you () <  what do you think ? am i the sort of boy who looks like i () ? |
+did you > * you () < no i didn't () ! Don't tell mum ! | 
+i do not > * not () < why don't you () ? |
 yes > * yes () < you seem sure . | are you sure ? |
 maybe > * maybe () < maybe shmaybe ! |
 no > * no () < no no no no no ! | 
@@ -47,6 +52,7 @@ thanks > * thanks () < it's actually thank you . |
 worried > * worried () < i am worried that i won't get sweets this Friday . |
 should i > * i () < I'll have to ask mum . |
 what do you like > * what () < i like cars and trucks and things that go . | i like spaceships . |
+i did not > * not () < yes you did . |
 i reckon that > SYNONYM i think that | <
 IDLE
 What do you mean?
@@ -63,7 +69,10 @@ MEMORY
 8 > I think my brother wants to () too , maybe you should talk .
 9 > maybe if you can () then i can play on the wii .
 10 > hang on, i actually don't understand () .
-11 > did you really think i () ?
+11 > i asked dad and he doesn't know how you () either .
+12 > did you really think i () ?
+13 > i didn't () ! I mean it !
+14 > i still don't get why you don't () .
 QUIT
 exit
 quit
