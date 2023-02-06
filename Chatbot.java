@@ -5,12 +5,25 @@ import java.io.*;
 
 public class Chatbot {
 
-    public static void main(String args[]) throws IOException {
+    public static void main(String args[]) {
+		List<String> script = new ArrayList<>();
+		try{
+			FileReader reader = new FileReader(args[0]);
+			Scanner scan = new Scanner(reader);
+			while (scan.hasNextLine()){
+				script.add(scan.nextLine());
+			}
+		}
+		catch(FileNotFoundException e){
+			System.out.println("No file found " + e.getMessage());
+		}
+		catch(ArrayIndexOutOfBoundsException e){
+			System.out.println("Out of bounds error" + e.getMessage());
+		}
 		if (args.length == 0){
 			System.out.println("No file supplied");
 			System.exit(0);
 		}
-		List<String> script = Files.readAllLines(Paths.get(args[0]));
 		String punctuation = "?.!,";
         boolean isQuit = false;
         List<String> greeting = textRetriever(script, "GREETING");
