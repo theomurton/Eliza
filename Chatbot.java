@@ -6,9 +6,13 @@ import java.io.*;
 public class Chatbot {
 
     public static void main(String args[]) throws IOException {
+		if (args.length == 0){
+			System.out.println("No file supplied");
+			System.exit(0);
+		}
+		List<String> script = Files.readAllLines(Paths.get(args[0]));
 		String punctuation = "?.!,";
         boolean isQuit = false;
-        List<String> script = Files.readAllLines(Paths.get(args[0]));
         List<String> greeting = textRetriever(script, "GREETING");
         List<String> goodbye = textRetriever(script, "GOODBYE");
         List<String> presubstitutions = textRetriever(script, "PRESUBSTITUTIONS");
@@ -88,6 +92,7 @@ public class Chatbot {
 	//once the while loop is broken a random goodbye message displays
 	    System.out.println(goodbye.get(random.nextInt(goodbye.size())));
     }
+
 // below method recalls earlier fragments from keywords and recomposes them
     public static List<String> recall(List<List<String>> memories, List<String> memory){
 	// if there are no memories null is returned and dealt with appropriately

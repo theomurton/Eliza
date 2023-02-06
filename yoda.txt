@@ -30,17 +30,17 @@ your > my
 myself > yourself
 yourself > myself
 KEYWORDS
-feeling > * feeling () < feeling () , every jedi sometimes does. | 
-i feel > * feel () < feel () , why do you ? |
-i hate > * hate () < to hate () , the path to the dark side is. |
-i love > * love () < Only in moderation must we love () . |
-i like > * like () < like () , I do as well. |
-i think that > * think () < think () , why do you ? |
-i have > * have () < to have () , dangerous, it is . |
-worried > * worried () < worried () , many a turned jedi has been . |
-yes > * yes () < so sure are you then ? |
-no > * no () < a bit negative, perhaps ? |
-maybe > * maybe () < yes or no , there is no maybe . | <
+feeling > * () < feeling () , every jedi sometimes does. | 
+i feel > * () < feel () , why do you ? |
+i hate > * () < to hate () , the path to the dark side is. |
+i love > * () < Only in moderation must we love () . |
+i like > * () < like () , I do as well. |
+i think that > * () < think () , why do you ? |
+i have > * () < to have () , dangerous, it is . |
+worried > * () < worried () , many a turned jedi has been . |
+yes > * () < so sure are you then ? |
+no > * () < a bit negative, perhaps ? |
+maybe > * () < yes or no , there is no maybe . | <
 i detest > SYNONYM i hate | <
 IDLE
 Mhhhhhhhhhhm.

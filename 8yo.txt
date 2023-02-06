@@ -31,29 +31,29 @@ your > my
 yourself > myself
 myself > yourself
 KEYWORDS
-i do not know > * know () < why don't you know () ? |
-feeling > * feeling () < i love feeling () . | mum says when i am feeling () i should give her a hug . |
-i feel > * feel () < what do you mean you feel () ? | i bet you always () ? |
-i hate > * hate () < i hate () too . | dad says we shouldn't hate things . |
-i love > * love () < My mum says she loves that too . | i don't . |
-i like > * like () < My friend likes () , but he's stupid . |
-i think that > * think () < Why do you think () ? |
-i have > * have () < have () < Why do you have () ? | I think my mum said she had () . |
-i want to > * to () < now i want to () too ! |
-can i > * i () < i'll have to ask dad if you can () . |
-do you understand > * understand () < of course i understand () ! |
-how do you > * you () < maybe you could ask dad how you () ? |
-do you > * you () <  what do you think ? am i the sort of boy who looks like i () ? |
-did you > * you () < no i didn't () ! Don't tell mum ! | 
-i do not > * not () < why don't you () ? |
-yes > * yes () < you seem sure . | are you sure ? |
-maybe > * maybe () < maybe shmaybe ! |
-no > * no () < no no no no no ! | 
-thanks > * thanks () < it's actually thank you . |
-worried > * worried () < i am worried that i won't get sweets this Friday . |
-should i > * i () < I'll have to ask mum . |
-what do you like > * what () < i like cars and trucks and things that go . | i like spaceships . |
-i did not > * not () < yes you did . |
+i do not know > * () < why don't you know () ? |
+feeling > * () < i love feeling () . | mum says when i am feeling () i should give her a hug . |
+i feel > * () < what do you mean you feel () ? | i bet you always () ? |
+i hate > * () < i hate () too . | dad says we shouldn't hate things . |
+i love > * () < My mum says she loves that too . | i don't . |
+i like > * () < My friend likes () , but he's stupid . |
+i think that > * () < Why do you think () ? |
+i have > * () < Why do you have () ? | I think my mum said she had () . |
+i want to > * () < now i want to () too ! |
+can i > * () < i'll have to ask dad if you can () . |
+do you understand > * () < of course i understand () ! |
+how do you > * () < maybe you could ask dad how you () ? |
+do you > * () <  what do you think ? am i the sort of boy who looks like i () ? |
+did you > * () < no i didn't () ! Don't tell mum ! | 
+i do not > * () < why don't you () ? |
+yes > * () < you seem sure . | are you sure ? |
+maybe > * () < maybe shmaybe ! |
+no > * () < no no no no no ! | 
+thanks > * () < it's actually thank you . |
+worried > * () < i am worried that i won't get sweets this Friday . |
+should i > * () < I'll have to ask mum . |
+what do you like > * () < i like cars and trucks and things that go . | i like spaceships . |
+i did not > * () < yes you did . |
 i reckon that > SYNONYM i think that | <
 IDLE
 What do you mean?
