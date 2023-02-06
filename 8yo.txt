@@ -38,13 +38,16 @@ i think that > * think () < Why do you think () ? |
 i have > * have () < have () < Why do you have () ? | I think my mum said she had () . |
 i want to > * to () < now i want to () too ! |
 can i > * i () < i'll have to ask dad if you can () . |
-do you > * you () <  what do you think ? am i the sort of boy who looks like i () ? |
-yes > * yes () < you seem sure . | is that certain ? |
+do you understand > * understand () < of course i understand () ! |
+do you > * you () <  what do you think ? am i the sort of boy who looks like i () ? | 
+yes > * yes () < you seem sure . | are you sure ? |
 maybe > * maybe () < maybe shmaybe ! |
 no > * no () < no no no no no ! | 
 thanks > * thanks () < it's actually thank you . |
 worried > * worried () < i am worried that i won't get sweets this Friday . |
 should i > * i () < I'll have to ask mum . |
+what do you like > * what () < i like cars and trucks and things that go . | i like spaceships . |
+i reckon that > SYNONYM i think that | <
 IDLE
 What do you mean?
 No.
@@ -59,7 +62,8 @@ MEMORY
 7 > i still don't understand why you have () .
 8 > I think my brother wants to () too , maybe you should talk .
 9 > maybe if you can () then i can play on the wii .
-10 > did you really think i () ?
+10 > hang on, i actually don't understand () .
+11 > did you really think i () ?
 QUIT
 exit
 quit
