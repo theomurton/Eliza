@@ -352,21 +352,19 @@ public class Chatbot {
 		List<String> newSynonym = substituter(input, substitutions);
 		return decompose(keywordLines, newSynonym);
 	}
-	String stopWord = "";
-	for (int c = 1; c < rule.size(); c++){
-		if (rule.get(c+1).equals("()")){
-			stopWord = rule.get(c);
-			break;
+	else if (rule.get(0).equals("*")){
+        	List<String> fragment = new ArrayList<>(input)
+		int c = 0;
+		while (c != x){
+			fragment.remove(0);
+			c++;
 		}
+		String j = Integer.toString(x);
+		fragment.add(j);
+        	return fragment;
+	} else {
+		//herehrkggggggggggggggggggggggggggggggggggggggggggggggggggjhjhj
 	}
-        List<String> fragment = new ArrayList<>(input);
-	while (!fragment.get(0).equals(stopWord)){
-		fragment.remove(0);
-	}
-	fragment.remove(0);
-	String j = Integer.toString(x);
-	fragment.add(j);
-        return fragment;
     }
 
 	public static String makeFinalSentence(List<String> sentence, String punctuation){
