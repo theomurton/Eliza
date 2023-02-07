@@ -202,7 +202,7 @@ public class Chatbot {
 		//text = text.replaceAll("[,?!]", "");
         return text;
     }
-
+//the make tokens method is made a little messier as it has to put space buffers between words and punctuation so it can tell if there is a new sentence.
     public static List<String> makeTokens(String input){
         List<String> tokens = new ArrayList<>();
 		String punctuation = "?.,!";
@@ -213,11 +213,24 @@ public class Chatbot {
 		List<Integer> indexes = new ArrayList<>();
 		for (int i = 0; i < tokens.size(); i++){
 			for (int j = 0; j < tokens.get(i).length(); j++){
+				if (tokens.get(i).length() == 1){
+					break;
+				}
 				String str = String.valueOf(tokens.get(i).charAt(j));
 				if (punctuation.contains(str)){
 					indexes.add(i);
 				}
 			}
+		}
+		int total = 0;
+		for (int k = 0; k < indexes.size(); k++){
+			String word = tokens.get(indexes.get(k) + total);
+			String punct = Character.toString(word.charAt(word.length() -1));
+			String substr = word.substring(0, word.length() - 1);
+			tokens.remove(indexes.get(k) + total);
+			tokens.add(indexes.get(k) + total, substr);
+			tokens.add(indexes.get(k) + total + 1, punct);
+			total ++;
 		}
         return tokens;
     }

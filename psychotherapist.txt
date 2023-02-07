@@ -45,7 +45,7 @@ i hate > * () < It's common to hate () . | Hating () can make us sad . |
 i love > * () < That's positive, it's good to love () . | Does loving () make you happy ? |
 i like > * () < Everyone can like () . | How much do you like () ? |
 i think that > * () < Why do you think () ? | How long have you thought () ? |
-i have > * () < Does it concern you have you have () ? | Does having () worry you ? |
+i have > * () < Does it concern you that you have () ? | Does having () worry you ? |
 worried > * () < how long have you been () ? |  Does worrying () help you ? |
 i want to > * () < is it right to want to () ? |
 should i > * () < it's for you to decide if you should () . |
