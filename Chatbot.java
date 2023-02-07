@@ -24,7 +24,7 @@ public class Chatbot {
 			System.out.println("No file supplied");
 			System.exit(0);
 		}
-		String punctuation = "?.!,";
+		String punctuation = ".?,!";
         boolean isQuit = false;
         List<String> greeting = textRetriever(script, "GREETING");
         List<String> goodbye = textRetriever(script, "GOODBYE");
@@ -199,16 +199,26 @@ public class Chatbot {
     public static String getInput(){
         Scanner scan = new Scanner(System.in);
         String text = scan.nextLine();
-		text = text.replaceAll("[,?!.]", "");
+		//text = text.replaceAll("[,?!]", "");
         return text;
     }
 
     public static List<String> makeTokens(String input){
         List<String> tokens = new ArrayList<>();
+		String punctuation = "?.,!";
         StringTokenizer st = new StringTokenizer(input, " ");
         while (st.hasMoreElements()){
              tokens.add(st.nextToken().toLowerCase());
         }
+		List<Integer> indexes = new ArrayList<>();
+		for (int i = 0; i < tokens.size(); i++){
+			for (int j = 0; j < tokens.get(i).length(); j++){
+				String str = String.valueOf(tokens.get(i).charAt(j));
+				if (punctuation.contains(str)){
+					indexes.add(i);
+				}
+			}
+		}
         return tokens;
     }
 //this method reads between the hashmap values to get the relevant text
@@ -372,19 +382,37 @@ public class Chatbot {
 	}
 	else if (rule.get(0).equals("*") && rule.get(1).equals("()")){
         	List<String> fragment = new ArrayList<>(input);
-		int c = 0;
-		while (c != index + keywords.size() - 1){
+			int c = 0;
+			while (c != index + keywords.size() - 1){
+				fragment.remove(0);
+				c++;
+			}
 			fragment.remove(0);
-			c++;
-		}
-		fragment.remove(0);
-		String j = Integer.toString(x);
-		fragment.add(j);
+			boolean newSentence = false;
+			int size = fragment.size();
+			int current = -1;
+			for (int r = 0; r < size; r++){
+				if(newSentence == false){
+					if (fragment.get(r).equals(".")){
+						newSentence = true;
+						current = r;
+					}
+				}
+				if (newSentence == true){
+					fragment.remove(current);
+				}
+			}
+			String j = Integer.toString(x);
+			fragment.add(j);
         	return fragment;
 	} else {
 		List<String> fragment = new ArrayList<>();
-		for (int a = 0; a < index; a++){
-			fragment.add(input.get(a));
+		for (int a = index - 1; a > 0; a--){
+			if (!input.get(a).equals(".")){
+				fragment.add(input.get(a));
+			} else {
+				break;
+			}
 		}
 		Collections.reverse(fragment);
 		String j = Integer.toString(x);
