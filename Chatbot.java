@@ -337,6 +337,7 @@ public class Chatbot {
 
 //this method checks for keywords and then decomposes
     public static List<String> decompose(List<String> keywordLines, List<String> input){
+	String punctuation = ".,?!";
 	boolean match = false;
 	int index = -1;
 	Integer x = -1;
@@ -406,7 +407,7 @@ public class Chatbot {
 			int current = -1;
 			for (int r = 0; r < size; r++){
 				if(newSentence == false){
-					if (fragment.get(r).equals(".")){
+					if (punctuation.contains(fragment.get(r))){
 						newSentence = true;
 						current = r;
 					}
@@ -420,8 +421,8 @@ public class Chatbot {
         	return fragment;
 	} else {
 		List<String> fragment = new ArrayList<>();
-		for (int a = index - 1; a > 0; a--){
-			if (!input.get(a).equals(".")){
+		for (int a = index - 1; a >= 0; a--){
+			if (!punctuation.contains(input.get(a))){
 				fragment.add(input.get(a));
 			} else {
 				break;
@@ -430,6 +431,7 @@ public class Chatbot {
 		Collections.reverse(fragment);
 		String j = Integer.toString(x);
                 fragment.add(j);
+				System.out.println(fragment);
 		return fragment;
 	}
     }

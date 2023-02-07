@@ -11,6 +11,8 @@ Pleasant talking with you, it has been.
 Leave the oven on, I did.
 Disappeared, another few minutes of my life have. Yess. Mhhhhhhhm.
 PRESUBSTITUTIONS
+dont > do not
+don't > do not
 it's > it is
 can't > cannot
 cant > cannot
@@ -19,6 +21,11 @@ reckon > think
 you're > you are
 youre > you are
 i'm > i am
+we're > we are
+he's > he is
+she's > she is
+ive > i have
+i've > i have
 POSTSUBSTITUTIONS
 you are > i am
 i am > you are
@@ -30,18 +37,38 @@ your > my
 myself > yourself
 yourself > myself
 KEYWORDS
-feeling > * () < feeling () , every jedi sometimes does. | 
-i feel > * () < feel () , why do you ? |
+feeling > * () < feeling () , every jedi sometimes does. | feeling () , why are you ? |
+i feel > * () < feel () , why do you ? | 
 i hate > * () < to hate () , the path to the dark side is. |
 i love > * () < Only in moderation must we love () . |
 i like > * () < like () , I do as well. |
 i think that > * () < think () , why do you ? |
-i have > * () < to have () , dangerous, it is . |
+i have > * () < to have () , dangerous, it is . | 
 worried > * () < worried () , many a turned jedi has been . |
-yes > * () < so sure are you then ? |
+do you know > * () < know () , do i ? think on this i must . |
+have you > * () < () , i have not . |
+was killed > () * < that () was lost, sorry, i am . |
+i want > * () < manage your desires, you must . |
+yes > * () < so sure are you then ? | sure you are , it would seem . |
 no > * () < a bit negative, perhaps ? |
-maybe > * () < yes or no , there is no maybe . | <
+maybe > * () < yes or no , there is no maybe . | 
+the force > * () < respect the force, you must . |
+jedi > * () < want to become a jedi , do you ? |
+sith > * () < destroy the Sith , we must . |
+do you > * () < still considering my own preferences, i am . |
 i detest > SYNONYM i hate | <
+i adore > SYNONYM i love | <
+i admire > SYNONYM i love | <
+i loathe > SYNONYM i hate | <
+i detest > SYNONYM i hate | <
+i abhor > SYNONYM i hate | <
+i reckon > SYNONYM i think that | <
+i expect > SYNONYM i think that | <
+i guess > SYNONYM i think that | <
+i assume > SYNONYM i think that | <
+concerned > SYNONYM worried | <
+ought i > SYNONYM should i | <
+never > SYNONYM no | <
 IDLE
 Mhhhhhhhhhhm.
 To understand better, please help me.
@@ -63,6 +90,9 @@ MEMORY
 5 > Reason to think () , do you have ?
 6 > () , has every man ?
 7 > stop being worried () , you must !
+8 > still know () , i do not . Continue to ponder this , i must .
+9 > wrong , i was , () , i have . 
+10 > When () was killed , sad , did you feel ?
 QUIT
 exit
 quit

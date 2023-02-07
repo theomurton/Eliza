@@ -10,6 +10,8 @@ I'm going to go and watch TV now.
 I'm bored, bye.
 Nice talking.
 PRESUBSTITUTIONS
+dont > do not
+don't > do not
 it's > it is
 can't > cannot
 cant > cannot
@@ -18,8 +20,11 @@ reckon > think
 you're > you are
 youre > you are
 i'm > i am
-don't > do not
-dont > do not
+we're > we are
+he's > he is
+she's > she is
+ive > i have
+i've > i have
 POSTSUBSTITUTIONS
 you are > i am
 i am > you are
@@ -44,16 +49,20 @@ can i > * () < i'll have to ask dad if you can () . |
 do you understand > * () < of course i understand () ! |
 how do you > * () < maybe you could ask dad how you () ? |
 do you > * () <  what do you think ? am i the sort of boy who looks like i () ? |
-did you > * () < no i didn't () ! Don't tell mum ! | 
+did you > * () < no i didn't () ! Don't tell mum ! |
 i do not > * () < why don't you () ? |
+why do > * () < i don't know , why do () ? |
+why does > * () < i don't know, why does () ? | 
 yes > * () < you seem sure . | are you sure ? |
 maybe > * () < maybe shmaybe ! |
-no > * () < no no no no no ! | 
+no > * () < no no no no no ! |
+lego > * () < i love lego ! Have you seen the UCS Rivendell? | 
 thanks > * () < it's actually thank you . |
 worried > * () < i am worried that i won't get sweets this Friday . |
 should i > * () < I'll have to ask mum . |
 what do you like > * () < i like cars and trucks and things that go . | i like spaceships . |
 i did not > * () < yes you did . |
+you are > * () < no i'm not ! |
 i reckon that > SYNONYM i think that | <
 IDLE
 What do you mean?
@@ -74,6 +83,8 @@ MEMORY
 12 > did you really think i () ?
 13 > i didn't () ! I mean it !
 14 > i still don't get why you don't () .
+15 > i still don't get why () . 
+16 > why does () ? 
 QUIT
 exit
 quit

@@ -50,6 +50,9 @@ worried > * () < how long have you been () ? |  Does worrying () help you ? |
 i want to > * () < is it right to want to () ? |
 should i > * () < it's for you to decide if you should () . |
 died > () * < i'm so sorry that () died . |
+makes me > * () < Let's consider the impact of it making you () . |
+was killed > () * < How long has it been since () was killed ? |
+i cannot > () * < I'm not sure anyone can . |
 can i > * () < does the thought of being able to scare you ? |
 yes > * () < you seem sure . | is that certain ? |
 maybe > * () < how can we be sure ? |
@@ -70,6 +73,7 @@ i assume > SYNONYM i think that | <
 concerned > SYNONYM worried | <
 ought i > SYNONYM should i | <
 never > SYNONYM no | <
+making me > SYNONYM makes me | <
 IDLE
 Let's unpack that.
 I'm not sure what to say to that.
@@ -93,6 +97,8 @@ MEMORY
 9 > Does everyone want to () ?
 10 > should you () ?
 11 > since () died , what have you done ?
+12 > Does it still make you () ?
+13 > What did () being killed mean to you ?
 QUIT
 exit
 quit
