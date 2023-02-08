@@ -48,6 +48,11 @@ worried > * () < worried () , many a turned jedi has been . |
 do you know > * () < know () , do i ? think on this i must . |
 have you > * () < () , i have not . |
 was killed > () * < that () was lost, sorry, i am . |
+you have > * () < naturally, () i have . |
+do you like > * () < still considering my own preferences on () , i am . |
+do you > * () < () , do i ? think that of me, do you ? |
+you are > * () < () , i am not . |
+are you > * () < () , i am . know this, how did you ? |
 i want > * () < manage your desires, you must . |
 yes > * () < so sure are you then ? | sure you are , it would seem . |
 no > * () < a bit negative, perhaps ? |
@@ -55,7 +60,7 @@ maybe > * () < yes or no , there is no maybe . |
 the force > * () < respect the force, you must . |
 jedi > * () < want to become a jedi , do you ? |
 sith > * () < destroy the Sith , we must . |
-do you > * () < still considering my own preferences, i am . |
+should i > * () < your own path, you must decide . |
 i detest > SYNONYM i hate | <
 i adore > SYNONYM i love | <
 i admire > SYNONYM i love | <
@@ -93,6 +98,11 @@ MEMORY
 8 > still know () , i do not . Continue to ponder this , i must .
 9 > wrong , i was , () , i have . 
 10 > When () was killed , sad , did you feel ?
+11 > () , i have .
+12 > decided, i have. like () , i do .
+13 > () , i do not. apologise for the delayed reply, i do.
+14 > () , i still am not .
+15 > still understand how you knew i was () , i do not .
 QUIT
 exit
 quit

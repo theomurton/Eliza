@@ -431,7 +431,6 @@ public class Chatbot {
 		Collections.reverse(fragment);
 		String j = Integer.toString(x);
                 fragment.add(j);
-				System.out.println(fragment);
 		return fragment;
 	}
     }

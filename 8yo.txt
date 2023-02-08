@@ -46,13 +46,16 @@ i think that > * () < Why do you think () ? |
 i have > * () < Why do you have () ? | I think my mum said she had () . |
 i want to > * () < now i want to () too ! |
 can i > * () < i'll have to ask dad if you can () . |
-do you understand > * () < of course i understand () ! |
+do you understand > * () < of course i understand () ! | No, not at all ! |
 how do you > * () < maybe you could ask dad how you () ? |
+what do you like > * () < i like cars and trucks and things that go . | i like spaceships . |
+do you like > * () < of course i like () ! | 
 do you > * () <  what do you think ? am i the sort of boy who looks like i () ? |
 did you > * () < no i didn't () ! Don't tell mum ! |
 i do not > * () < why don't you () ? |
 why do > * () < i don't know , why do () ? |
 why does > * () < i don't know, why does () ? | 
+makes me > * () < it makes me () too . |
 yes > * () < you seem sure . | are you sure ? |
 maybe > * () < maybe shmaybe ! |
 no > * () < no no no no no ! |
@@ -60,10 +63,23 @@ lego > * () < i love lego ! Have you seen the UCS Rivendell? |
 thanks > * () < it's actually thank you . |
 worried > * () < i am worried that i won't get sweets this Friday . |
 should i > * () < I'll have to ask mum . |
-what do you like > * () < i like cars and trucks and things that go . | i like spaceships . |
 i did not > * () < yes you did . |
 you are > * () < no i'm not ! |
+i am > () * < no you're not ! |
 i reckon that > SYNONYM i think that | <
+i adore > SYNONYM i love | <
+i admire > SYNONYM i love | <
+i loathe > SYNONYM i hate | <
+i detest > SYNONYM i hate | <
+i abhor > SYNONYM i hate | <
+i reckon > SYNONYM i think that | <
+i expect > SYNONYM i think that | <
+i guess > SYNONYM i think that | <
+i assume > SYNONYM i think that | <
+concerned > SYNONYM worried | <
+ought i > SYNONYM should i | <
+never > SYNONYM no | <
+making me > SYNONYM makes me | <
 IDLE
 What do you mean?
 No.
@@ -80,11 +96,13 @@ MEMORY
 9 > maybe if you can () then i can play on the wii .
 10 > hang on, i actually don't understand () .
 11 > i asked dad and he doesn't know how you () either .
-12 > did you really think i () ?
-13 > i didn't () ! I mean it !
-14 > i still don't get why you don't () .
-15 > i still don't get why () . 
-16 > why does () ? 
+13 > i said i really liked () !
+14 > did you really think i () ?
+15 > i didn't () ! I mean it !
+16 > i still don't get why you don't () .
+17 > i still don't get why () . 
+18 > why does () ?
+19 > does it still make you () ? 
 QUIT
 exit
 quit
