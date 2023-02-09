@@ -43,8 +43,9 @@ i hate > * () < i hate () too . | dad says we shouldn't hate things . |
 i love > * () < My mum says she loves that too . | i don't . |
 i like > * () < My friend likes () , but he's stupid . |
 i think that > * () < Why do you think () ? |
+i used to > * () < my dad says he used to () , but i don't believe him . | my friend used to () . |
 i have > * () < Why do you have () ? | I think my mum said she had () . |
-i want to > * () < now i want to () too ! |
+i want to > * () < now i want to () too ! | i never want to () ! |
 can i > * () < i'll have to ask dad if you can () . |
 do you understand > * () < of course i understand () ! | No, not at all ! |
 how do you > * () < maybe you could ask dad how you () ? |
@@ -91,18 +92,19 @@ MEMORY
 4 > i think i love () too .
 5 > does liking () make you cool ?
 6 > my teacher also thinks that () .
-7 > i still don't understand why you have () .
-8 > I think my brother wants to () too , maybe you should talk .
-9 > maybe if you can () then i can play on the wii .
-10 > hang on, i actually don't understand () .
-11 > i asked dad and he doesn't know how you () either .
-13 > i said i really liked () !
-14 > did you really think i () ?
-15 > i didn't () ! I mean it !
-16 > i still don't get why you don't () .
-17 > i still don't get why () . 
-18 > why does () ?
-19 > does it still make you () ? 
+7 > when you used to () , did you enjoy it ?
+8 > i still don't understand why you have () .
+9 > I think my brother wants to () too , maybe you should talk .
+10 > maybe if you can () then i can play on the wii .
+11 > hang on, i actually don't understand () .
+12 > i asked dad and he doesn't know how you () either .
+14 > i said i really liked () !
+15 > did you really think i () ?
+16 > i didn't () ! I mean it !
+17 > i still don't get why you don't () .
+18 > i still don't get why () . 
+19 > why does () ?
+20 > does it still make you () ? 
 QUIT
 exit
 quit

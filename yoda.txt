@@ -38,29 +38,33 @@ myself > yourself
 yourself > myself
 KEYWORDS
 feeling > * () < feeling () , every jedi sometimes does. | feeling () , why are you ? |
-i feel > * () < feel () , why do you ? | 
-i hate > * () < to hate () , the path to the dark side is. |
-i love > * () < Only in moderation must we love () . |
-i like > * () < like () , I do as well. |
-i think that > * () < think () , why do you ? |
-i have > * () < to have () , dangerous, it is . | 
-worried > * () < worried () , many a turned jedi has been . |
+i feel > * () < feel () , why do you ? | feel () , we all must sometimes . |
+i hate > * () < to hate () , the path to the dark side is. | hate () , we must not . |
+i love > * () < Only in moderation must we love () . | love () , it is natural to do . |
+i like > * () < like () , I do as well. | like () , i have always . |
+i think that > * () < think () , why do you ? | think () , do you ? funny, that is . |
+i have > * () < to have () , dangerous, it is . | () , have we all . |
+worried > * () < worried () , many a turned jedi has been . | worried () , do not be . |
 do you know > * () < know () , do i ? think on this i must . |
-have you > * () < () , i have not . |
+have you > * () < () , i have not . | () , i have . |
 was killed > () * < that () was lost, sorry, i am . |
 you have > * () < naturally, () i have . |
 do you like > * () < still considering my own preferences on () , i am . |
 do you > * () < () , do i ? think that of me, do you ? |
 you are > * () < () , i am not . |
-are you > * () < () , i am . know this, how did you ? |
-i want > * () < manage your desires, you must . |
+how are you > * () < feeling energetic today, i am . | feeling lethargic today , i am .|
+are you > * () < () , i am . know this, how did you ? | 
+i am > * () < () , you are ? know this, i did not . | (), are you really ? trouble believing this, i have . |
+i want > * () < manage your desires, you must . | desires can lead to jealousy . Mmmm , yessss . |
 yes > * () < so sure are you then ? | sure you are , it would seem . |
-no > * () < a bit negative, perhaps ? |
+no > * () < a bit negative, perhaps ? | sure, you seem . |
 maybe > * () < yes or no , there is no maybe . | 
-the force > * () < respect the force, you must . |
-jedi > * () < want to become a jedi , do you ? |
+the force > * () < respect the force, you must . | the force surrounds all living beings . |
+jedi > * () < want to become a jedi , do you ? | a jedi master , i am . |
 sith > * () < destroy the Sith , we must . |
-should i > * () < your own path, you must decide . |
+should i > * () < your own path, you must decide . | decide for you, i cannot . |
+sorry > * () < a reason to apologise, do you have ? | apologise, why do you ? |
+i should > * () < a sound path , you have chosen . |
 i detest > SYNONYM i hate | <
 i adore > SYNONYM i love | <
 i admire > SYNONYM i love | <
@@ -74,6 +78,7 @@ i assume > SYNONYM i think that | <
 concerned > SYNONYM worried | <
 ought i > SYNONYM should i | <
 never > SYNONYM no | <
+i think > SYNONYM i think that | <
 IDLE
 Mhhhhhhhhhhm.
 To understand better, please help me.
@@ -102,7 +107,8 @@ MEMORY
 12 > decided, i have. like () , i do .
 13 > () , i do not. apologise for the delayed reply, i do.
 14 > () , i still am not .
-15 > still understand how you knew i was () , i do not .
+16 > still understand how you knew i was () , i do not .
+17 > () , why are you ?
 QUIT
 exit
 quit
