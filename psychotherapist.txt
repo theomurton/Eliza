@@ -67,6 +67,8 @@ do you > * () <  let's not dicuss me . |
 you > * () < let's not discuss me . |
 thanks > * () < great, looks like we're making progress . |
 sorry > * () < don't apologise . | there is no need to apologise . |
+parents > * () < do you have a good relationship with your parents ? | When did you last see your parents ? |
+siblings > * () < how do you get along with your siblings ? | What was your childhood like ? |
 i adore > SYNONYM i love | <
 i admire > SYNONYM i love | <
 i loathe > SYNONYM i hate | <
@@ -81,6 +83,12 @@ concerned > SYNONYM worried | <
 ought i > SYNONYM should i | <
 never > SYNONYM no | <
 making me > SYNONYM makes me | <
+family > SYNONYM parents | <
+mum > SYNONYM parents | <
+dad > SYNONYM parents | <
+sister > SYNONYM siblings | <
+brother > SYNONYM siblings | <
+sibling > SYNONYM siblings | <
 IDLE
 Let's unpack that.
 I'm not sure what to say to that.
