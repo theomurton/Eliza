@@ -52,13 +52,19 @@ should i > * () < it's for you to decide if you should () . |
 died > () * < i'm so sorry that () died . |
 makes me > * () < Let's consider the impact of it making you () . |
 was killed > () * < How long has it been since () was killed ? |
+i am > * () < Let's consider that. Are you really () ? |
+he is > * () < Okay, does it bother you that he is () ? |
+she is > * () < Okay, does it bother you that she is () ? |
+they are > * () < Okay, is it a good thing that they are () ? |
+divorced > () * < I'm sorry they got divorced . |
 i cannot > () * < I'm not sure anyone can . |
 can i > * () < does the thought of being able to scare you ? |
 yes > * () < you seem sure . | is that certain ? |
 maybe > * () < how can we be sure ? |
-no > * () < are you just being contrary ? |
+no > * () < are you just being contrary ? | Do you really mean no ? |
 do you think > * () < it doesn't matter what i think . |
 do you > * () <  let's not dicuss me . |
+you > * () < let's not discuss me . |
 thanks > * () < great, looks like we're making progress . |
 sorry > * () < don't apologise . | there is no need to apologise . |
 i adore > SYNONYM i love | <
@@ -70,6 +76,7 @@ i reckon > SYNONYM i think that | <
 i expect > SYNONYM i think that | <
 i guess > SYNONYM i think that | <
 i assume > SYNONYM i think that | <
+i think > SYNONYM i think that | <
 concerned > SYNONYM worried | <
 ought i > SYNONYM should i | <
 never > SYNONYM no | <
@@ -99,6 +106,10 @@ MEMORY
 11 > since () died , what have you done ?
 12 > Does it still make you () ?
 13 > What did () being killed mean to you ?
+14 > Are you really () ?
+15 > Is he really () ?
+16 > Is she still () ?
+17 > Are they () ? Or do you think they might change ?
 QUIT
 exit
 quit

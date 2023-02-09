@@ -41,8 +41,8 @@ feeling > * () < i love feeling () . | mum says when i am feeling () i should gi
 i feel > * () < what do you mean you feel () ? | i bet you always () ? |
 i hate > * () < i hate () too . | dad says we shouldn't hate things . |
 i love > * () < My mum says she loves that too . | i don't . |
-i like > * () < My friend likes () , but he's stupid . |
-i think that > * () < Why do you think () ? |
+i like > * () < My friend likes () , but he's stupid . | i like () , but only a bit . |
+i think that > * () < Why do you think () ? | does everyone think () ? |
 i used to > * () < my dad says he used to () , but i don't believe him . | my friend used to () . |
 i have > * () < Why do you have () ? | I think my mum said she had () . |
 i want to > * () < now i want to () too ! | i never want to () ! |
@@ -67,6 +67,12 @@ should i > * () < I'll have to ask mum . |
 i did not > * () < yes you did . |
 you are > * () < no i'm not ! |
 i am > () * < no you're not ! |
+why > * () < i dunno, do you ? |
+mum > * () <  i love mum , don't tell her though ! |
+dad > * () < do you know when dad is making dinner ? |
+sister > * () < where is my sister ? Is she in my room ? |
+brother > * () < brother ? I don't have a brother . |
+school > * () < school sucks . |
 i reckon that > SYNONYM i think that | <
 i adore > SYNONYM i love | <
 i admire > SYNONYM i love | <
@@ -77,6 +83,7 @@ i reckon > SYNONYM i think that | <
 i expect > SYNONYM i think that | <
 i guess > SYNONYM i think that | <
 i assume > SYNONYM i think that | <
+i think > SYNONYM i think that | <
 concerned > SYNONYM worried | <
 ought i > SYNONYM should i | <
 never > SYNONYM no | <
@@ -84,6 +91,10 @@ making me > SYNONYM makes me | <
 IDLE
 What do you mean?
 No.
+I'm bored.
+This isn't very fun.
+You have a bit of food on your face.
+Can you be a bit more fun?
 MEMORY
 0 > i was thinking, and i don't know () either .
 1 > now i'm feeling () too .

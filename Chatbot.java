@@ -149,7 +149,7 @@ public class Chatbot {
     public static List<String> recompose(List<String> fragment, List<String> keywords, int index){
 	List<List<String>> keywordLine = new ArrayList<>();
 	List<String> line = makeTokens(keywords.get(index));
-	//keywords.get(index)
+	//interpreting different parts of a script line
         while (!line.get(0).equals("<")){
         	line.remove(0);
         }
@@ -224,6 +224,7 @@ public class Chatbot {
 		}
 		int total = 0;
 		for (int k = 0; k < indexes.size(); k++){
+			//makes punctuation have their own list element, "test!" becomes "test" "!"
 			String word = tokens.get(indexes.get(k) + total);
 			String punct = Character.toString(word.charAt(word.length() -1));
 			String substr = word.substring(0, word.length() - 1);
@@ -340,8 +341,9 @@ public class Chatbot {
 	String punctuation = ".,?!";
 	boolean match = false;
 	int index = -1;
-	Integer x = -1;
+	Integer line = -1;
 	List<String> keywords = new ArrayList<>();
+	//the following lines interpret the lines around the symbols <, > , () and |
 	for (int i = 0; i < keywordLines.size(); i++){
 		HashSet<Integer> banned = new HashSet<>();
 		keywords = makeTokens(keywordLines.get(i));
@@ -354,22 +356,23 @@ public class Chatbot {
             		keywords.remove(k);
             		p--;
         	}
+//saving line number of keyword match
 		index = compareWords(keywords, input, banned);
 		if (index > -1){
 			match = true;
-			x = i;
+			line = i;
 			break;
 		}
 	}
 	if (match == false){
 		return null;
 	}
-	List<String> rule = makeTokens(keywordLines.get(x));
+	List<String> rule = makeTokens(keywordLines.get(line));
 	int k = 0;
         while (!rule.get(k).equals("<")){
         	k++;
         }
-        int p = makeTokens(keywordLines.get(x)).size() - k;
+        int p = makeTokens(keywordLines.get(line)).size() - k;
         while (p > 0){
         	rule.remove(k);
                 p--;
@@ -392,6 +395,7 @@ public class Chatbot {
 		}
 		substitutions.add(sub);
 		List<String> newSynonym = substituter(input, substitutions);
+//for synonym lines we do a substitution then call the method recursively
 		return decompose(keywordLines, newSynonym);
 	}
 	else if (rule.get(0).equals("*") && rule.get(1).equals("()")){
@@ -400,7 +404,7 @@ public class Chatbot {
 			while (c != index + keywords.size() - 1){
 				fragment.remove(0);
 				c++;
-			}
+			}// here we are stopping the fragment picking up more words if punctuation is found
 			fragment.remove(0);
 			boolean newSentence = false;
 			int size = fragment.size();
@@ -416,10 +420,11 @@ public class Chatbot {
 					fragment.remove(current);
 				}
 			}
-			String j = Integer.toString(x);
+			String j = Integer.toString(line);
 			fragment.add(j);
         	return fragment;
 	} else {
+//the same punctuation method but in reverse for the 'remember before' decomposition
 		List<String> fragment = new ArrayList<>();
 		for (int a = index - 1; a >= 0; a--){
 			if (!punctuation.contains(input.get(a))){
@@ -429,13 +434,14 @@ public class Chatbot {
 			}
 		}
 		Collections.reverse(fragment);
-		String j = Integer.toString(x);
+		String j = Integer.toString(line);
                 fragment.add(j);
 		return fragment;
 	}
     }
 
 	public static String makeFinalSentence(List<String> sentence, String punctuation){
+//this method tidies things up, manages spacing and punctuation as well as capitalisation
 		String output  = "";
         for (int i = 0; i < sentence.size(); i++){
 			if (punctuation.contains(sentence.get(i))){
